@@ -11,10 +11,14 @@
             "id": "7f4f3b7abe1b8118",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "L01.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "L01"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "ac13922b8b75e6e2",
@@ -181,6 +186,15 @@
   },
   "active": "7f4f3b7abe1b8118",
   "lastOpenFiles": [
+    "L01.md~",
+    "4913",
+    "Untitled.md",
+    "L01.md",
+    "pull_course_website.sh~",
+    "pull_course_website.sh",
+    "index.html",
+    "main.md",
+    "main.md~",
     "Main.md",
     "Untitled 1.base",
     "Untitled.base",
@@ -191,16 +205,11 @@
     "1766975367-NRVZ.md~",
     "assets/imgs/fig_1-3-1.png",
     "1768247161-HOSZ.md",
-    "Main.md~",
     "1769795527-WXDI.md",
-    "1769795527-WXDI.md~",
     "1766962818-EODE.md",
-    "1769795497-JXKS.md~",
     "1769795497-JXKS.md",
     "assets/imgs/fig_(1-3-1).png",
-    "1768247161-HOSZ.md~",
     "1766973264-EXXS.md",
-    "1766973264-EXXS.md~",
     "1766959914-XULY.md"
   ]
 }
