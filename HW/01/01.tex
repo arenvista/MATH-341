@@ -1,0 +1,564 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amscd,amssymb,mathrsfs,tikz}
+\usepackage{latexsym,epsf,epsfig}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage{xcolor,colortbl} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+\usepackage[left=1.2in, right=1.2in, top=1in, bottom=1in]{geometry} %The above set the parameters adjust the margins. There are many ways to do this, and frankly, what is above is not the best. However, it will work the time being.
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sU}{\mathscr U}
+% Theorem
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\title{ MATH 341: Homework 1}
+\author{ Aren Vista }
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagebreak
+\section*{Question 1}
+\begin{center}
+	\textit{Give an example where a combination of $\vec{a}, \vec{b}, \vec{c} \in \mathbb{R}^4$, non-zero vectors, is a zero vector.} \\
+	\textit{Write in the form $Ax=0$. What are the shapes of $A$ and $x$ and $0$}
+\end{center}
+Let $\vec{a}, \vec{b}, \vec{c} \in \mathbb{R}^4$ and be non-zero vectors. Let them be defined as follows:
+\[
+	\vec{a} = \begin{bmatrix}
+		a_1 \\ a_2 \\ a_3 \\ a_4
+	\end{bmatrix} \quad
+	\vec{b} = \begin{bmatrix}
+		b_1 \\ b_2 \\ b_3 \\ b_4
+	\end{bmatrix} \quad
+	\vec{c} = \begin{bmatrix}
+		c_1 \\ c_2 \\ c_3 \\ c_4
+	\end{bmatrix}
+\]
+Let $A$ be defined as follows:
+\[
+	A = \begin{bmatrix}
+		\vec{a}, \vec{b}, \vec{c}
+	\end{bmatrix}
+\]
+Find values for elements of $\vec{a}, \vec{b}, \vec{c}, x$ so that the following relationship holds:
+\[
+	Ax = \vec{0}
+\]
+Observe:
+\[
+	A = \begin{bmatrix}
+		a_1 & b_1 & c_1 \\
+		a_2 & b_2 & c_2 \\
+		a_3 & b_3 & c_3 \\
+		a_4 & b_4 & c_4
+	\end{bmatrix}
+\]
+Thus:
+\[
+	Ax=\vec{0} \implies
+	A = \begin{bmatrix}
+		a_1 & b_1 & c_1 \\
+		a_2 & b_2 & c_2 \\
+		a_3 & b_3 & c_3 \\
+		a_4 & b_4 & c_4
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix}
+	= \begin{bmatrix}
+		0 \\ 0 \\ 0 \\ 0
+	\end{bmatrix}
+\]
+Continuing:
+\[
+	\begin{bmatrix}
+		a_1 & b_1 & c_1 \\
+		a_2 & b_2 & c_2 \\
+		a_3 & b_3 & c_3 \\
+		a_4 & b_4 & c_4
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\ x_2 \\ x_3
+	\end{bmatrix}
+	= \begin{bmatrix}
+		(a_1x_1 + b_1x_2 + c_1x_3) \\
+		(a_2x_1 + b_2x_2 + c_2x_3) \\
+		(a_3x_1 + b_3x_2 + c_3x_3) \\
+		(a_4x_1 + b_4x_2 + c_4x_3)
+	\end{bmatrix}
+	= \begin{bmatrix}
+		0 \\ 0 \\ 0 \\ 0
+	\end{bmatrix}
+\]
+An example of one such possible combination if the following:
+\[
+	A = \begin{bmatrix}
+		1 & 2 & -3 \\
+		1 & 2 & -3 \\
+		1 & 2 & -3 \\
+		1 & 2 & -3
+	\end{bmatrix}
+	x = \begin{bmatrix}
+		1 \\ 1 \\ 1
+	\end{bmatrix}
+\]
+Observe:
+\[
+	\begin{bmatrix}
+		1 & 2 & -3 \\
+		1 & 2 & -3 \\
+		1 & 2 & -3 \\
+		1 & 2 & -3
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\ 1 \\ 1
+	\end{bmatrix} =
+	\begin{bmatrix}
+		((1*1) + (2*1) (-3*1)) \\
+		((1*1) + (2*1) (-3*1)) \\
+		((1*1) + (2*1) (-3*1)) \\
+		((1*1) + (2*1) (-3*1))
+	\end{bmatrix}
+	= \begin{bmatrix}
+		0 \\ 0 \\ 0 \\ 0
+	\end{bmatrix}
+\]
+Thus the linear combination of non-zero vectors yields: $\vec{a} + \vec{b} + \vec{c} = \vec{0}$
+\begin{center}
+	\textit{Aside: The shapes of $A$ is $4 \times 3$. \\ The vectors $[a-c],0$ are $4 \times 1$. \\ The vector $x$ is $3 \times 1$. \\ Recall $[4 \times 3][3 \times 1] = [4 \times 1]$ }
+\end{center}
+\section*{Question 2}
+\begin{center}
+	\textit{Suppose A is a $[3 \times 3]$ matrix of all ones. \\
+		Find $\vec{x}$ and $\vec{y}$ that solve $Ax=0$ and $Ay=0$ \\
+		Write $Ax=0$ as a combination of the columns of $A$. \\
+		"Why don't I ask for a third independent vector with $Az=0$?"}
+\end{center}
+Let $A$ be defined as:
+\[
+	A = \begin{bmatrix}
+		1 & 1 & 1 & 1 \\
+		1 & 1 & 1 & 1 \\
+		1 & 1 & 1 & 1 \\
+		1 & 1 & 1 & 1
+	\end{bmatrix}
+	= \begin{bmatrix}
+		\vec{a_1}, \vec{a_2}, \vec{a_3}, \vec{a_4}
+	\end{bmatrix}
+	= \begin{bmatrix}
+		a_{(1,1)} & a_{(1,2)} & a_{(1,3)} & a_{(1,4)} \\
+		a_{(2,1)} & a_{(2,2)} & a_{(2,3)} & a_{(2,4)} \\
+		a_{(3,1)} & a_{(3,2)} & a_{(3,3)} & a_{(3,4)} \\
+		a_{(4,1)} & a_{(4,2)} & a_{(4,3)} & a_{(4,4)} \\
+	\end{bmatrix}
+\]
+Find $\vec{x}, \vec{y}$ s.t. $Ax=0, Ay=0$. Observe:
+\[
+	(1)\vec{a_1} + (1)\vec{a_2} + (-1)\vec{a_3} + (-1)\vec{a_4} = \vec{0}
+\]
+This is the same as:
+\[
+	\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
+	+ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
+	+ \begin{bmatrix} -1 \\ -1 \\ -1 \\ -1 \end{bmatrix}
+	+ \begin{bmatrix} -1 \\ -1 \\ -1 \\ -1 \end{bmatrix}
+	= \vec{0}
+\]
+Consider by Gausian Elim. the REF:
+\[
+	A_{ref} = \begin{bmatrix}
+		1 & 1 & 1 & 1 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}
+\]
+Thus:
+\[
+	\begin{bmatrix}
+		1 & 1 & 1 & 1 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\ x_2 \\ x_3 \\ x_4
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 \\ 0 \\ 0 \\ 0
+	\end{bmatrix}
+\]
+In parametric vector form:
+\[
+	\begin{aligned}
+		 & x_1 = -x_2 -x_3 -x_4 \\
+		 & x_2 = x_2            \\
+		 & x_3 = x_3            \\
+		 & x_4 = x_4
+	\end{aligned}
+\]
+Define in terms of free variables:
+\[
+	x_2\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}+
+	x_3\begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \end{bmatrix}+
+	x_4\begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+Thus the Null(A) is:
+\[
+	Nul(A) =
+	\begin{bmatrix}
+		-1 & -1 & -1 \\
+		1  & 0  & 0  \\
+		0  & 1  & 0  \\
+		0  & 0  & 1  \\
+	\end{bmatrix}
+\]
+Thus $\forall ~\vec{x}, Nul(A)\vec{x} = \vec{b}$ we can guarentee $\vec{b}$ satisfies the equation $A \vec{b} = \vec{0}$. \vspace{1.2em}
+Notice the relationship with the prior defined solution
+$\vec{x} =
+	\begin{bmatrix}
+		1  \\
+		1  \\
+		-1 \\
+		-1
+	\end{bmatrix}
+$ \\
+\begin{center}
+	By definition of null space we would expect $\vec{x} \in Span(Nul(A))$. \\
+	$\exists ~\vec{x}_{nul} \ni Nul(A) \vec{x}_{nul} = \vec{x}$
+\end{center}
+Observe
+\[
+	\begin{bmatrix}
+		-1 & -1 & -1 \\
+		1  & 0  & 0  \\
+		0  & 1  & 0  \\
+		0  & 0  & 1  \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\
+		x_2 \\
+		x_3 \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1  \\
+		1  \\
+		-1 \\
+		-1
+	\end{bmatrix}
+\]
+So that:
+\[
+	\begin{bmatrix}
+		-1 & -1 & -1 & | & 1  \\
+		1  & 0  & 0  & | & 1  \\
+		0  & 1  & 0  & | & -1 \\
+		0  & 0  & 1  & | & -1 \\
+	\end{bmatrix} \implies
+	\begin{bmatrix}
+		-1 & -1 & -1 & | & 1 \\
+		0  & -1 & -1 & | & 2 \\
+		0  & 0  & -1 & | & 1 \\
+		0  & 0  & 0  & | & 0 \\
+	\end{bmatrix} \implies
+	\begin{bmatrix}
+		1 & 0 & 0 & | & 1  \\
+		0 & 1 & 0 & | & -1 \\
+		0 & 0 & 1 & | & -1 \\
+		0 & 0 & 0 & | & 0  \\
+	\end{bmatrix} \implies \vec{x}_{nul} =
+	\begin{bmatrix}
+		1  \\
+		-1 \\
+		-1 \\
+	\end{bmatrix}
+\]
+Checking
+\[
+	\begin{bmatrix}
+		-1 & -1 & -1 \\
+		1  & 0  & 0  \\
+		0  & 1  & 0  \\
+		0  & 0  & 1  \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		1  \\
+		-1 \\
+		-1 \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-1 + 1 + 1 & = 1  \\
+		1 + 0 + 0  & = 1  \\
+		0 - 1 + 0  & = -1 \\
+		0 + 0 - 1  & = -1
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1  \\
+		1  \\
+		-1 \\
+		-1
+	\end{bmatrix}
+\]
+We have shown that the vector $\vec{x}$ exists within the $Nul(A)$.
+\section*{Question 3}
+\begin{center}
+	\textit{Suppose $Col(A_{n \times m})$ is all of $\mathbb{R}^3$. \\
+		What can you say about $n$ and the rank of the matrix?} \\
+	\textit{\textbf{(Comment: -- I had flipped m,n)} }
+\end{center}
+Let $A$ be defined as follows:
+\[
+	A =
+	\begin{bmatrix}
+		a_{(1,1)} & a_{(1,2)} & ... & a_{(1,m)} \\
+		a_{(2,1)} & a_{(2,2)} &     & ...       \\
+		...       &           & ... &           \\
+		a_{(n,1)} &           &     & a_{(n,m)}
+	\end{bmatrix}
+	= \begin{bmatrix}
+		\vec{a_1}, \vec{a_2}, ... \vec{a_m}
+	\end{bmatrix}
+\]
+Suppose: $Span(Col(A)) = \mathbb{R}^3$:
+\[
+	\begin{aligned}
+		 & \implies \forall ~\vec{v} \in \mathbb{R}^3, \vec{v} \in Span(Col(A))                                                           \\
+		 & \implies \exists ~\{ c_1,c_2,...,c_m \} \subseteq \mathbb{R} \ni \vec{v} = c_1 \vec{a_1} + c_2 \vec{a_2} + ... + c_m \vec{a_m}
+	\end{aligned}
+\]
+Observe: $Span(Col(A))=\mathbb{R}^3 \implies \exists ~\vec{a_1}, \vec{a_2}, \vec{a_3} \in A$, where $\vec{a_1}, \vec{a_2}, \vec{a_3}$ are distinct.\\
+\begin{center}
+	\textit{We say these vectors are linearly independent iff the following relationship holds:}\\
+\end{center}
+\textbf{Case 1: } Proving independence of $\vec{a_1}, \vec{a_2}, \vec{a_3}$: \\
+If $~c_1,c_2,c_3 \in \mathbb{R}, ~~c_1\vec{a_1} + c_2\vec{a_2} + c_3\vec{a_3} + = \vec{0} \implies c_1 = c_2 = c_3 = 0$
+\begin{center}
+	Then we can say $\vec{a_1}, \vec{a_2}, \vec{a_3}$ are independent towards each other.
+\end{center}
+\textbf{Case 2: } Proving dependence of $\vec{a_1}, \vec{a_2}, \vec{a_3}, \vec{a_4}$\\
+Let $~c_1,c_2,c_3,c_4 \in \mathbb{R}$, consider $\vec{a_4} \in A$ where $\vec{a_4}$ represents an arbtrary distinct vector. \\
+If $\exists ~c_1, c_2, c_3, c_4 \neq 0 \text{ s.t. } c_1\vec{a_1} + c_2\vec{a_2} + c_3\vec{a_3} + c_4\vec{a_4} + = \vec{0}$
+\begin{center}
+	Then we can say $\vec{a_1}, \vec{a_2}, \vec{a_3}$ are the only independent vectors in the set.
+\end{center}
+Let $\vec{a}$ represent a column vector in $A$, the $Span(Col(A))$ is defined to be as follows:
+\[
+	\forall ~\vec{a} \in A, \vec{a} \in Span(Col(A))
+\]
+Thus by Rank-Nullity Theorem we say the following statments are equivalent:
+\begin{enumerate}
+	\item $nullity(A)+rank(A)=$ (number of pivot columns) - (number of non pivot columns)
+	\item $rank(A)=dimCol(A)=$ (number of pivot columns)
+	\item $rank(A)=dimRow(A)=$ (number of pivot rows)
+\end{enumerate}
+Therefore we can summarize the following staments as equivalent:
+\begin{enumerate}
+	\item IFF $Span(Col(A)) = \mathbb{R}^3$
+	\item $\exists ~\vec{a_1}, \vec{a_2}, \vec{a_3} \in Col(A)$ which are distinct, linear indepedent vectors.
+	\item There are exactly three pivot columns in $A$.
+	\item $Rank(A)=3=n$
+\end{enumerate}
+\section*{Question 4}
+\begin{center}
+	\textit{If $A=CR$ then what are the $CR$ factors of the matrix $\begin{bmatrix} 0 & A \\ 0 & A \end{bmatrix}$}
+\end{center}
+Observe:
+\[
+	\begin{bmatrix} 0 & A \\ 0 & A \end{bmatrix} =
+	\begin{bmatrix}
+		0 & CR \\
+		0 & CR \\
+	\end{bmatrix}
+\]
+Recall:
+\begin{enumerate}
+	\item $\forall$ rank one matrix can be writter as an outter product of two, any only two, vectors.
+	\item $\forall$ rank $r$ matricies can be written as the sum of $r$ rank one matricies.
+\end{enumerate}
+\[
+	\begin{bmatrix}
+		0 & A \\
+		0 & A \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 \\ 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & A
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 \\ 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & CR
+	\end{bmatrix}
+\]
+\section*{Question 5}
+\begin{center}
+	\textit{Suppose $\vec{a},\vec{b}$ are column vectors with components $a_1,...,a_m$ and $b_1,...,b_p$\\
+		Is $\vec{ab^T}$ a valid operation? \\
+		What is the shape of $\vec{ab}^T$? \\
+		What is in the row $i$, column $j$ of $\vec{ab^T}$?\\
+		What can you say about $\vec{aa^T}$?
+	}
+\end{center}
+\textbf{Part 1:} Is $\vec{ab^T}$ a valid operation? What is the shape of $\vec{ab}^T$? \\
+Let $\vec{a},\vec{b}$ be:
+\[
+	\vec{a} = \begin{bmatrix}
+		a_1 \\
+		a_2 \\
+		... \\
+		a_m \\
+	\end{bmatrix}
+	\vec{b} = \begin{bmatrix}
+		b_1 \\
+		b_2 \\
+		... \\
+		b_p \\
+	\end{bmatrix}
+\]
+Consider $\vec{ab^T}$:
+\[
+	\vec{ab^T} =
+	\begin{bmatrix}
+		a_1 \\
+		a_2 \\
+		... \\
+		a_m \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_1 &
+		b_2 &
+		... &
+		b_p &
+	\end{bmatrix}
+\]
+Note $\vec{a}$ has shape $[m \cdot 1]$ and $\vec{b}$ has shape $[1 \cdot p]$. Recall we can only multiply two matricies if their inner-products are the same. As both $\vec{a}, \vec{b}^T$ share the same inner product ($1$) this is a valid operation that yields a $[m \cdot p]$ matrix.  \\
+\textbf{Part 2:} What is in the row $i$, column $j$ of $\vec{ab^T}$?\\
+Consider $\vec{ab^T}$:
+\[
+	\vec{ab^T} =
+	\begin{bmatrix}
+		a_1 \\
+		a_2 \\
+		... \\
+		a_m \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_1 & b_2 & ... & b_p &
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		b_1 a_1 + b_2 a_1 + ... + b_p a_1 \\
+		b_1 a_2 + b_2 a_2 + ... + b_p a_2 \\
+		...                               \\
+		b_1 a_m + b_2 a_m + ... + b_p a_m \\
+	\end{bmatrix}
+\]
+\textbf{Part 2:} What can you say about $\vec{aa^T}$ \\
+Consider $\vec{aa^T}$:
+\[
+	\vec{aa^T} =
+	\begin{bmatrix}
+		a_1 \\
+		a_2 \\
+		... \\
+		a_m \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		a_1 & a_2 & ... & a_m &
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a_1 a_1 + a_2 a_1 + ... + a_m a_1 \\
+		a_1 a_2 + a_2 a_2 + ... + a_m a_2 \\
+		...                               \\
+		a_1 a_m + a_2 a_m + ... + a_m a_m \\
+	\end{bmatrix}
+\]
+\begin{center}
+	\textit{Observation: yields a square $[m \cdot m]$ matrix.}
+\end{center}
+\section*{Question 6}
+\begin{center}
+	\textit{If A has columns $\vec{a_1},\vec{a_2},\vec{a_3}$ and $B=I$ is the identity matrix. \\
+		what are the rank one matrices: $\vec{a_1 b_1^T},\vec{a_2 b_2^T},\vec{a_3 b_3^T}$?\\
+		They should add to $AI=A$}
+\end{center}
+Observe:
+\[
+	B =
+	\begin{bmatrix}
+		b_{(1,1)} & c_{(1,2)} & ... & c_{(1,n)} \\
+		c_{(2,1)} & b_{(2,2)} &     & c_{(2,n)} \\
+		...       &           & ... & ...       \\
+		c_{(n,1)} &           &     & b_{(n,n)} \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1   & 0 & ... & 0   \\
+		0   & 1 &     & ... \\
+		... &   & ... &     \\
+		0   &   &     & 1   \\
+	\end{bmatrix}
+\]
+Thus transposed:
+\[
+	B^T =
+	\begin{bmatrix}
+		b_{(n,n)}   & c_{(n,n-1)}   & ... & c_{(n,1)} \\
+		c_{(n-1,n)} & b_{(n-1,n-1)} &     & c_{(n,2)} \\
+		...         &               & ... & ...       \\
+		c_{(1,n)}   &               &     & b_{(1,1)} \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1   & 0 & ... & 0   \\
+		0   & 1 &     & ... \\
+		... &   & ... &     \\
+		0   &   &     & 1   \\
+	\end{bmatrix}
+\]
+Observe the transposition of $I^T=I=B=B^T$.\\
+Thus we can see the following:
+\[
+	A =
+	\begin{bmatrix}
+		a_{(1,1)} & a_{(1,2)} & ... & a_{(1,m)} \\
+		a_{(2,1)} & a_{(2,2)} &     & ...       \\
+		...       &           & ... &           \\
+		a_{(n,1)} &           &     & a_{(n,m)}
+	\end{bmatrix}
+	= \begin{bmatrix}
+		\vec{a_1}, \vec{a_2}, ... \vec{a_m}
+	\end{bmatrix}
+\] 
+Which means the following:
+\end{document}
