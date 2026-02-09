@@ -37,7 +37,9 @@
 \begin{document}
 \maketitle
 \pagebreak
-\section*{Question 1}
+\begin{center}
+	\section*{Question 1}
+\end{center}
 \begin{center}
 	\textit{Give an example where a combination of $\vec{a}, \vec{b}, \vec{c} \in \mathbb{R}^4$, non-zero vectors, is a zero vector.} \\
 	\textit{Write in the form $Ax=0$. What are the shapes of $A$ and $x$ and $0$}
@@ -147,7 +149,9 @@ Thus the linear combination of non-zero vectors yields: $\vec{a} + \vec{b} + \ve
 \begin{center}
 	\textit{Aside: The shapes of $A$ is $4 \times 3$. \\ The vectors $[a-c],0$ are $4 \times 1$. \\ The vector $x$ is $3 \times 1$. \\ Recall $[4 \times 3][3 \times 1] = [4 \times 1]$ }
 \end{center}
-\section*{Question 2}
+\begin{center}
+	\section*{Question 2}
+\end{center}
 \begin{center}
 	\textit{Suppose A is a $[3 \times 3]$ matrix of all ones. \\
 		Find $\vec{x}$ and $\vec{y}$ that solve $Ax=0$ and $Ay=0$ \\
@@ -157,91 +161,82 @@ Thus the linear combination of non-zero vectors yields: $\vec{a} + \vec{b} + \ve
 Let $A$ be defined as:
 \[
 	A = \begin{bmatrix}
-		1 & 1 & 1 & 1 \\
-		1 & 1 & 1 & 1 \\
-		1 & 1 & 1 & 1 \\
-		1 & 1 & 1 & 1
+		1 & 1 & 1 \\
+		1 & 1 & 1 \\
+		1 & 1 & 1
 	\end{bmatrix}
 	= \begin{bmatrix}
-		\vec{a_1}, \vec{a_2}, \vec{a_3}, \vec{a_4}
+		\vec{a_1}, \vec{a_2}, \vec{a_3}
 	\end{bmatrix}
 	= \begin{bmatrix}
-		a_{(1,1)} & a_{(1,2)} & a_{(1,3)} & a_{(1,4)} \\
-		a_{(2,1)} & a_{(2,2)} & a_{(2,3)} & a_{(2,4)} \\
-		a_{(3,1)} & a_{(3,2)} & a_{(3,3)} & a_{(3,4)} \\
-		a_{(4,1)} & a_{(4,2)} & a_{(4,3)} & a_{(4,4)} \\
+		a_{(1,1)} & a_{(1,2)} & a_{(1,3)} \\
+		a_{(2,1)} & a_{(2,2)} & a_{(2,3)} \\
+		a_{(3,1)} & a_{(3,2)} & a_{(3,3)}
 	\end{bmatrix}
 \]
 Find $\vec{x}, \vec{y}$ s.t. $Ax=0, Ay=0$. Observe:
 \[
-	(1)\vec{a_1} + (1)\vec{a_2} + (-1)\vec{a_3} + (-1)\vec{a_4} = \vec{0}
+	(1)\vec{a_1} + (1)\vec{a_2} + (-2)\vec{a_3} = \vec{0}
 \]
 This is the same as:
 \[
-	\begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
-	+ \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix}
-	+ \begin{bmatrix} -1 \\ -1 \\ -1 \\ -1 \end{bmatrix}
-	+ \begin{bmatrix} -1 \\ -1 \\ -1 \\ -1 \end{bmatrix}
+	\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+	+ \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+	+ \begin{bmatrix} -2 \\ -2 \\ -2 \end{bmatrix}
 	= \vec{0}
 \]
 Consider by Gausian Elim. the REF:
 \[
 	A_{ref} = \begin{bmatrix}
-		1 & 1 & 1 & 1 \\
-		0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0
+		1 & 1 & 1 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
 	\end{bmatrix}
 \]
 Thus:
 \[
 	\begin{bmatrix}
-		1 & 1 & 1 & 1 \\
-		0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0 \\
-		0 & 0 & 0 & 0
+		1 & 1 & 1 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
 	\end{bmatrix}
 	\begin{bmatrix}
-		x_1 \\ x_2 \\ x_3 \\ x_4
+		x_1 \\ x_2 \\ x_3
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		0 \\ 0 \\ 0 \\ 0
+		0 \\ 0 \\ 0
 	\end{bmatrix}
 \]
 In parametric vector form:
 \[
 	\begin{aligned}
-		 & x_1 = -x_2 -x_3 -x_4 \\
-		 & x_2 = x_2            \\
-		 & x_3 = x_3            \\
-		 & x_4 = x_4
+		 & x_1 = -x_2 -x_3 \\
+		 & x_2 = x_2       \\
+		 & x_3 = x_3
 	\end{aligned}
 \]
 Define in terms of free variables:
 \[
-	x_2\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \end{bmatrix}+
-	x_3\begin{bmatrix} 1 \\ 0 \\ 1 \\ 0 \end{bmatrix}+
-	x_4\begin{bmatrix} 1 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+	x_2\begin{bmatrix} -1 \\ 1 \\ 0 \end{bmatrix}+
+	x_3\begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix}
 \]
 Thus the Null(A) is:
 \[
 	Nul(A) =
 	\begin{bmatrix}
-		-1 & -1 & -1 \\
-		1  & 0  & 0  \\
-		0  & 1  & 0  \\
-		0  & 0  & 1  \\
+		-1 & -1 \\
+		1  & 0  \\
+		0  & 1
 	\end{bmatrix}
 \]
 Thus $\forall ~\vec{x}, Nul(A)\vec{x} = \vec{b}$ we can guarentee $\vec{b}$ satisfies the equation $A \vec{b} = \vec{0}$. \vspace{1.2em}
 Notice the relationship with the prior defined solution
 $\vec{x} =
 	\begin{bmatrix}
-		1  \\
-		1  \\
-		-1 \\
-		-1
+		1 \\
+		1 \\
+		-2
 	\end{bmatrix}
 $ \\
 \begin{center}
@@ -251,80 +246,71 @@ $ \\
 Observe
 \[
 	\begin{bmatrix}
-		-1 & -1 & -1 \\
-		1  & 0  & 0  \\
-		0  & 1  & 0  \\
-		0  & 0  & 1  \\
+		-1 & -1 \\
+		1  & 0  \\
+		0  & 1
 	\end{bmatrix}
 	\begin{bmatrix}
 		x_1 \\
-		x_2 \\
-		x_3 \\
+		x_2
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		1  \\
-		1  \\
-		-1 \\
-		-1
+		1 \\
+		1 \\
+		-2
 	\end{bmatrix}
 \]
 So that:
 \[
 	\begin{bmatrix}
-		-1 & -1 & -1 & | & 1  \\
-		1  & 0  & 0  & | & 1  \\
-		0  & 1  & 0  & | & -1 \\
-		0  & 0  & 1  & | & -1 \\
+		-1 & -1 & | & 1  \\
+		1  & 0  & | & 1  \\
+		0  & 1  & | & -2
 	\end{bmatrix} \implies
 	\begin{bmatrix}
-		-1 & -1 & -1 & | & 1 \\
-		0  & -1 & -1 & | & 2 \\
-		0  & 0  & -1 & | & 1 \\
-		0  & 0  & 0  & | & 0 \\
+		0 & -1 & | & 2  \\
+		1 & 0  & | & 1  \\
+		0 & 1  & | & -2
 	\end{bmatrix} \implies
 	\begin{bmatrix}
-		1 & 0 & 0 & | & 1  \\
-		0 & 1 & 0 & | & -1 \\
-		0 & 0 & 1 & | & -1 \\
-		0 & 0 & 0 & | & 0  \\
+		1 & 0 & | & 1  \\
+		0 & 1 & | & -2 \\
+		0 & 0 & | & 0
 	\end{bmatrix} \implies \vec{x}_{nul} =
 	\begin{bmatrix}
-		1  \\
-		-1 \\
-		-1 \\
+		1 \\
+		-2
 	\end{bmatrix}
 \]
 Checking
 \[
 	\begin{bmatrix}
-		-1 & -1 & -1 \\
-		1  & 0  & 0  \\
-		0  & 1  & 0  \\
-		0  & 0  & 1  \\
+		-1 & -1 \\
+		1  & 0  \\
+		0  & 1
 	\end{bmatrix}
 	\begin{bmatrix}
-		1  \\
-		-1 \\
-		-1 \\
+		1 \\
+		-2
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		-1 + 1 + 1 & = 1  \\
-		1 + 0 + 0  & = 1  \\
-		0 - 1 + 0  & = -1 \\
-		0 + 0 - 1  & = -1
+		-1 + 2 & = 1  \\
+		1 + 0  & = 1  \\
+		0 - 2  & = -2
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		1  \\
-		1  \\
-		-1 \\
-		-1
+		1 \\
+		1 \\
+		-2
 	\end{bmatrix}
 \]
 We have shown that the vector $\vec{x}$ exists within the $Nul(A)$.
-\section*{Question 3}
+\begin{center}
+	\section*{Question 3}
+\end{center}
 \begin{center}
 	\textit{Suppose $Col(A_{n \times m})$ is all of $\mathbb{R}^3$. \\
 		What can you say about $n$ and the rank of the matrix?} \\
@@ -382,7 +368,9 @@ Therefore we can summarize the following staments as equivalent:
 	\item There are exactly three pivot columns in $A$.
 	\item $Rank(A)=3=n$
 \end{enumerate}
-\section*{Question 4}
+\begin{center}
+	\section*{Question 4}
+\end{center}
 \begin{center}
 	\textit{If $A=CR$ then what are the $CR$ factors of the matrix $\begin{bmatrix} 0 & A \\ 0 & A \end{bmatrix}$}
 \end{center}
@@ -419,7 +407,18 @@ Recall:
 		0 & CR
 	\end{bmatrix}
 \]
-\section*{Question 5}
+\[
+    \text{Thus: }
+    \begin{bmatrix}
+        C \\ C
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & R
+    \end{bmatrix}
+\] 
+\begin{center}
+	\section*{Question 5}
+\end{center}
 \begin{center}
 	\textit{Suppose $\vec{a},\vec{b}$ are column vectors with components $a_1,...,a_m$ and $b_1,...,b_p$\\
 		Is $\vec{ab^T}$ a valid operation? \\
@@ -506,7 +505,9 @@ Consider $\vec{aa^T}$:
 \begin{center}
 	\textit{Observation: yields a square $[m \cdot m]$ matrix.}
 \end{center}
-\section*{Question 6}
+\begin{center}
+	\section*{Question 6}
+\end{center}
 \begin{center}
 	\textit{If A has columns $\vec{a_1},\vec{a_2},\vec{a_3}$ and $B=I$ is the identity matrix. \\
 		what are the rank one matrices: $\vec{a_1 b_1^T},\vec{a_2 b_2^T},\vec{a_3 b_3^T}$?\\
@@ -559,6 +560,39 @@ Thus we can see the following:
 	= \begin{bmatrix}
 		\vec{a_1}, \vec{a_2}, ... \vec{a_m}
 	\end{bmatrix}
-\] 
+\]
 Which means the following:
+\[
+	\vec{a_1}\vec{b_1^T} =
+	\begin{bmatrix}
+		a_{(1,1)} \\
+		a_{(2,1)} \\
+		...       \\
+		a_{(n,1)} \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 & ... & 0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a_{(1,1)} & 0 & ... & 0 \\
+		a_{(2,1)} & 0 & ... & 0 \\
+		...       & 0 & ... & 0 \\
+		a_{(n,1)} & 0 & ... & 0 \\
+	\end{bmatrix}
+\]
+Applying the same logic to the following columns yields:
+\[
+	\vec{a_1 b_1^T} = [\vec{a_1}, \vec{0}, \vec{0}]
+	~~\vec{a_2 b_2^T} = [\vec{0}, \vec{a_2}, \vec{0}]
+	~~\vec{a_3 b_3^T} = [\vec{0}, \vec{0}, \vec{a_3}]
+\]
+
+Observe the sum of all elements validate $AI=A$
+\[
+	[\vec{a_1}, \vec{0}, \vec{0}]
+	+ [\vec{0}, \vec{a_2}, \vec{0}]
+	+ [\vec{0}, \vec{0}, \vec{a_3}]
+	= [ \vec{a_1}, \vec{a_2}, \vec{a_3}] = A
+\]
 \end{document}
