@@ -39,11 +39,11 @@
 \]
 \[
 	\begin{aligned}
-		& \begin{bmatrix}
-			1    & 0 & 0 \\
-			-1   & 1 & 0 \\
-			-0.5 & 0 & 1
-		\end{bmatrix}
+		 & \begin{bmatrix}
+			   1    & 0 & 0 \\
+			   -1   & 1 & 0 \\
+			   -0.5 & 0 & 1
+		   \end{bmatrix}
 		\begin{bmatrix}
 			4 & 2 & 0 \\
 			4 & 4 & 2 \\
@@ -55,11 +55,11 @@
 			0 & 2 & 3
 		\end{bmatrix}
 		\\
-		& \begin{bmatrix}
-			1    & 0    & 0 \\
-			-1   & 1    & 0 \\
-			-0.5 & -0.5 & 1
-		\end{bmatrix}
+		 & \begin{bmatrix}
+			   1    & 0    & 0 \\
+			   -1   & 1    & 0 \\
+			   -0.5 & -0.5 & 1
+		   \end{bmatrix}
 		\begin{bmatrix}
 			4 & 2 & 0 \\
 			0 & 4 & 2 \\
@@ -73,8 +73,8 @@
 	\end{aligned}
 \]
 \[
-    \text{This provides the following solution of the $LU$ factorization.}
-\] 
+	\text{This provides the following solution of the $LU$ factorization.}
+\]
 \[
 	L = L_1^{-1}, L_2^{-1} =
 	\begin{bmatrix}
@@ -93,10 +93,45 @@
 
 
 \noindent \textbf{Exercise 2} \textit{Assume that your computer can solve a $2000 \times 2000$ linear system $Ax = b$ in $0.1$ second. Estimate the time required to solve $100$ systems of $8000$ equations in $8000$ unknowns with the same coefficient matrix, using LU factorization method.} \\
-\textbf{Hint:} \textit{The cost of finding LU factorization is $2/3n^3$, and the cost of a single back substitution is $n^2$.}
+\textbf{Hint:} \textit{The cost of finding LU factorization is $2/3n^3$, and the cost of a single back substitution is $n^2$.} \\ \noindent
+
+\textit{Part 1: Find Big O} 
+
+$$C_{\text{base}} = \frac{2}{3}(2000)^3 + 2(2000)^2$$
+
+$$\text{Rate} \approx \frac{\frac{2}{3}(2000)^3}{0.1 \text{ s}} := O(n^3)$$
+
+$$\frac{C_{LU}(8000)}{C_{LU}(2000)} = \left(\frac{8000}{2000}\right)^3 = 4^3 = 64$$
+
+
+Time for LU factorization $\approx 64 \times 0.1 \text{ s} = 6.4 \text{ s}$. \\ \noindent 
+
+\textit{Part 2: Find for ($n = 8000$)} \\ \noindent
+
+For $100$ back substitutions. $100 \times n^2$. We compare this to the baseline factorization:
+
+
+$$\frac{100 \times 2 \times 8000^2}{\frac{2}{3} \times 2000^3} \approx 2.4$$
+
+
+Thus 100 solve phases take approximately $1.4$ times the duration of the original baseline solve.
+
+Time for substitutions $\approx 2.4 \times 0.1 \text{ s} = 0.24 \text{ s}$. \\ \noindent
+
+\textit{Part 3: Total Estimated Time} \\ \noindent
+
+Adding the time for the single factorization and the 100 substitution phases:
+
+$$\text{Total Time} = T_{LU} + T_{substitutions} = 6.4 \text{ s} + 0.24 \text{ s} = 6.64 \text{ s}$$
+
+\begin{center}
+    Final Estimate:
+    The estimated time required to solve the 100 systems is $6.64$ seconds.
+\end{center}
+
+
 
 \vspace{1em}
-
 \noindent \textbf{Exercise 3} \textit{Reduce each of the following matrices to row echelon form, determine the rank, and identify the basic columns:}
 
 \begin{itemize}
@@ -120,7 +155,7 @@
 		      ]
 	      \]
 	      \[
-		      Rank(A) = 4 \quad Basic ~Cols = \{ \vec{a_1}, \vec{a_2}, \vec{a_3}, \vec{a_4} \}
+		      Rank(A) = 3 \quad Basic ~Cols = \{ \vec{a_1}, \vec{a_2}, \vec{a_4}\}
 	      \]
 
 	\item[(b)]
