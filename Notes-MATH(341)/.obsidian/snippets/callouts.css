@@ -22,6 +22,11 @@
     --callout-icon: "lucide-book-open";
 }
 
+.callout[data-callout="ex"] {
+    --callout-color: 182, 182, 187; /* Green */
+    --callout-icon: "lucide-book-open";
+}
+
 /* --- PROOF (Gray/Subtle) --- */
 /* Proofs are often preferred to be subtle */
 .callout[data-callout="pf"] {

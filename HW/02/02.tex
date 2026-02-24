@@ -1,0 +1,152 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath,amsthm,amscd,amssymb,mathrsfs,tikz}
+\usepackage{latexsym,epsf,epsfig}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage{xcolor,colortbl} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+\usepackage[left=1.2in, right=1.2in, top=1in, bottom=1in]{geometry} %The above set the parameters adjust the margins. There are many ways to do this, and frankly, what is above is not the best. However, it will work the time being.
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sU}{\mathscr U}
+% Theorem
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ MATH 301: Homework 2}
+\author{ Aren Vista }
+
+\begin{document}
+\maketitle
+\noindent \textbf{Exercise 1} \textit{Solve the system by finding the LU factorization and then carrying out the two step back substitution:}
+\[
+	\begin{bmatrix}
+		4 & 2 & 0 \\
+		4 & 4 & 2 \\
+		2 & 2 & 3
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}
+\]
+\[
+	\begin{aligned}
+		& \begin{bmatrix}
+			1    & 0 & 0 \\
+			-1   & 1 & 0 \\
+			-0.5 & 0 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			4 & 2 & 0 \\
+			4 & 4 & 2 \\
+			2 & 2 & 3
+		\end{bmatrix} =
+		\begin{bmatrix}
+			4 & 2 & 0 \\
+			0 & 4 & 2 \\
+			0 & 2 & 3
+		\end{bmatrix}
+		\\
+		& \begin{bmatrix}
+			1    & 0    & 0 \\
+			-1   & 1    & 0 \\
+			-0.5 & -0.5 & 1
+		\end{bmatrix}
+		\begin{bmatrix}
+			4 & 2 & 0 \\
+			0 & 4 & 2 \\
+			0 & 2 & 3
+		\end{bmatrix} =
+		\begin{bmatrix}
+			4 & 2 & 0 \\
+			0 & 4 & 2 \\
+			0 & 0 & 3
+		\end{bmatrix}
+	\end{aligned}
+\]
+\[
+    \text{This provides the following solution of the $LU$ factorization.}
+\] 
+\[
+	L = L_1^{-1}, L_2^{-1} =
+	\begin{bmatrix}
+		1   & 0   & 0 \\
+		1   & 1   & 0 \\
+		0.5 & 0.5 & 1
+	\end{bmatrix}
+	\quad
+	U =
+	\begin{bmatrix}
+		4 & 2 & 0 \\
+		0 & 4 & 2 \\
+		0 & 0 & 3
+	\end{bmatrix}
+\]
+
+
+\noindent \textbf{Exercise 2} \textit{Assume that your computer can solve a $2000 \times 2000$ linear system $Ax = b$ in $0.1$ second. Estimate the time required to solve $100$ systems of $8000$ equations in $8000$ unknowns with the same coefficient matrix, using LU factorization method.} \\
+\textbf{Hint:} \textit{The cost of finding LU factorization is $2/3n^3$, and the cost of a single back substitution is $n^2$.}
+
+\vspace{1em}
+
+\noindent \textbf{Exercise 3} \textit{Reduce each of the following matrices to row echelon form, determine the rank, and identify the basic columns:}
+
+\begin{itemize}
+	\item[(a)]
+	      \[
+		      A = \begin{bmatrix}
+			      1 & 2 & 3 & 3 \\
+			      2 & 4 & 6 & 9 \\
+			      2 & 6 & 7 & 6
+		      \end{bmatrix} \xrightarrow{RREF}
+		      \begin{bmatrix}
+			      1 & 0 & 2   & 0 \\
+			      0 & 1 & 0.5 & 0 \\
+			      0 & 0 & 0   & 1
+		      \end{bmatrix} =
+		      [
+		      \vec{a_1},
+		      \vec{a_2},
+		      \vec{a_3},
+		      \vec{a_4}
+		      ]
+	      \]
+	      \[
+		      Rank(A) = 4 \quad Basic ~Cols = \{ \vec{a_1}, \vec{a_2}, \vec{a_3}, \vec{a_4} \}
+	      \]
+
+	\item[(b)]
+	      \[
+		      A = \begin{bmatrix}
+			      1 & 2 & 3 \\
+			      2 & 6 & 8 \\
+			      2 & 6 & 0 \\
+			      1 & 2 & 5 \\
+			      3 & 8 & 6
+		      \end{bmatrix} \xrightarrow{RREF}
+		      \begin{bmatrix}
+			      1 & 0 & 0 \\
+			      0 & 1 & 0 \\
+			      0 & 0 & 1 \\
+			      0 & 0 & 0 \\
+			      0 & 0 & 0
+		      \end{bmatrix} =
+		      [
+		      \vec{a_1},
+		      \vec{a_2},
+		      \vec{a_3}
+		      ]
+	      \]
+	      \[
+		      Rank(A) = 3 \quad Basic ~Cols = \{ \vec{a_1}, \vec{a_2}, \vec{a_3} \}
+	      \]
+\end{itemize}
+\end{document}

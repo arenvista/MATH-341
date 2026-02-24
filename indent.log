@@ -1,8 +1,9 @@
 INFO:  latexindent version 3.24.4, 2024-07-18, a script to indent .tex files
        latexindent lives here: /home/sybil/.local/share/nvim/mason/packages/latexindent/
-       Thu Feb 19 10:50:51 2026
+       Tue Feb 10 10:46:47 2026
        Reading input from STDIN
 INFO:  Processing switches:
+       -n|--lines mode: will only operate on specific lines 192-208
 INFO:  Directory for backup files and log file indent.log:
        .
 INFO:  YAML settings read: defaultSettings.yaml
@@ -13,6 +14,14 @@ INFO:  YAML reading settings
        Home directory is /home/sybil
        latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
        see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  -n,--lines switch is active, operating on lines 192-208
+       number of lines in file: 208
+INFO:  interpreting 192-208
+       min line: 192, max line: 208
+INFO:  line range summary: 
+       the number of indent line ranges: 1
+       the *sorted* line ranges are in the form MIN-MAX: 
+       192-208
 INFO:  Phase 1: searching for objects
 INFO:  Phase 2: finding surrounding indentation
 INFO:  Phase 3: indenting objects
