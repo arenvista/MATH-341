@@ -1,0 +1,491 @@
+\documentclass[9pt]{article}
+\usepackage{amsmath,amsthm,amscd,amssymb,mathrsfs,tikz}
+\usepackage{latexsym,epsf,epsfig}
+\usepackage{sectsty}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage{xcolor,colortbl} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+\usepackage[left=1.2in, right=1.2in, top=1in, bottom=1in]{geometry} %The above set the parameters adjust the margins. There are many ways to do this, and frankly, what is above is not the best. However, it will work the time being.
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\sU}{\mathscr U}
+% Theorem
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{ MATH 341: Homework 3}
+\author{ Aren Vista }
+
+\begin{document}
+\maketitle
+\noindent \textbf{Math 341 Numerical Linear Algebra for Deep Neural Networks, Hw 3}  \\
+(At least one of the problems will be graded)
+
+\vspace{0.5cm}
+
+\noindent \textbf{Exercise 1} Let
+\[ A=\begin{bmatrix}1&2&0&1\\ 2&4&1&3\\ 1&2&1&2\end{bmatrix}\in\mathbb{R}^{3\times4}. \]
+
+\begin{enumerate}
+	\item[(a)] Row-reduce $A$ to an echelon form $E$ with one way of tracking row operations by augmenting with $I_{3}$ as
+	      \[ [A|I_{3}]\longrightarrow[E|P], \]
+	      so that $PA=E.$ Write down $E$ and $P$, and let $r$ be the number of nonzero rows of $E$.
+
+	      \[
+		      \begin{aligned}
+			      \hline                                 \\
+			       & \xrightarrow{Proposition}      &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 1 & 0 & 0 \\
+					      2 & 4 & 1 & 3 & 0 & 1 & 0 \\
+					      1 & 2 & 1 & 2 & 0 & 0 & 1
+				      \end{array}
+				      \right]
+			       & \xrightarrow{R_2 = R_2 - 2R_1} &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 1  & 0 & 0 \\
+					      0 & 0 & 1 & 1 & -2 & 1 & 0 \\
+					      1 & 2 & 1 & 2 & 0  & 0 & 1
+				      \end{array}
+				      \right]
+			      \\
+			       & \xrightarrow{R_3 = R_3 - R_1~} &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 1  & 0 & 0 \\
+					      0 & 0 & 1 & 1 & -2 & 1 & 0 \\
+					      0 & 0 & 1 & 1 & -1 & 0 & 1
+				      \end{array}
+				      \right]
+			       & \xrightarrow{R_3 = R_3 - R_2~} &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 1  & 0  & 0 \\
+					      0 & 0 & 1 & 1 & -2 & 1  & 0 \\
+					      0 & 0 & 0 & 0 & 1  & -1 & 1
+				      \end{array}
+				      \right]
+			      \\
+			       & \xrightarrow{R_1 = R_1 - R_3~} &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 0  & 1  & -1 \\
+					      0 & 0 & 1 & 1 & -2 & 1  & 0  \\
+					      0 & 0 & 0 & 0 & 1  & -1 & 1
+				      \end{array}
+				      \right]
+			       & \xrightarrow{R_2 = R_2 + 2R_3} &  &
+			      \left[
+				      \begin{array}{cccc|ccc}
+					      1 & 2 & 0 & 1 & 0 & 1  & -1 \\
+					      0 & 0 & 1 & 1 & 0 & -1 & 2  \\
+					      0 & 0 & 0 & 0 & 1 & -1 & 1
+				      \end{array}
+				      \right]
+			      \\ \\
+			      \hline
+		      \end{aligned}
+	      \]
+
+	      \[
+		      E = \left[
+			      \begin{array}{cccc}
+				      1 & 2 & 0 & 1 \\
+				      0 & 0 & 1 & 1 \\
+				      0 & 0 & 0 & 0
+			      \end{array}
+			      \right] \quad
+		      P = \left[
+			      \begin{array}{ccc}
+				      0 & 1  & -1 \\
+				      0 & -1 & 2  \\
+				      1 & -1 & 1
+			      \end{array}
+			      \right] \quad
+		      r = 2
+	      \]
+	\item[(b)] Identify the pivot columns of $A$ and give a basis for $R(A)$ using the corresponding columns of the original matrix $A$. State $\dim(R(A))$.
+	      \[
+		      A_{REF} = E =
+		      \left[
+			      \begin{array}{cccc}
+				      \color{red}{1} & 2 & 0              & 1 \\
+				      0              & 0 & \color{red}{1} & 1 \\
+				      0              & 0 & 0              & 0
+			      \end{array}
+			      \right]
+	      \]
+	      \begin{center} The {\color{red}pivots} indicate the following pivot columns: \end{center}
+	      \[
+		      \text{Pivot Cols } =
+		      \left\{
+		      \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+		      \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+		      \right\} \quad \quad
+		      \text{ Basis of $Col(A)$} =
+		      \left\{
+		      \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}
+		      \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+		      \right\}
+	      \]
+	\item[(c)] Give a basis for $R(A^{T})$ using the nonzero rows of $E$. State $\dim(R(A^{T}))$.
+	      \[
+		      \text{ Basis of $Row(A)$} =
+		      \left\{
+		      \begin{bmatrix} 1 \\ 2 \\ 1 \end{bmatrix}^T
+		      \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}^T
+		      \right\}
+	      \]
+	      \[ dims(Col(A)) = dims(Row(A)) = [dims(A) - dims(Nul(A))] \]
+	\item[(d)] Solve $Ax=0$ using $E$ (i.e., solve $Ex=0$). Give a basis for $N(A)$ and state $\dim(N(A))$.
+	      \[
+		      A_{REF} = E =
+		      \left[
+			      \begin{array}{cccc}
+				      1 & 2 & 0 & 1 \\
+				      0 & 0 & 1 & 1 \\
+				      0 & 0 & 0 & 0
+			      \end{array}
+			      \right]
+		      \implies
+		      \left[
+			      \begin{array}{cccccccccc}
+				      x_1 & + & 2x_2 & + & 0   & + & x_4 & = & 0 \\
+				      0   & + & 0    & + & x_3 & + & x_4 & = & 0 \\
+			      \end{array}
+			      \right]
+		      \implies
+		      \left[
+			      \begin{array}{cccccccc}
+				      x_1 & = & -2x_2 & + & -x_4 \\
+				      x_3 & = & -x_4             \\
+				      x_2 & = & x_2              \\
+				      x_4 & = & x_4
+			      \end{array}
+			      \right]
+	      \]
+	      \[
+		      x_2 \begin{bmatrix} -2 \\ 1 \\ 0 \\ 0 \end{bmatrix} +
+		      x_4 \begin{bmatrix} -1 \\ 0 \\ -1 \\ 1 \end{bmatrix}
+		      \implies
+		      Nul(A) =
+		      \begin{bmatrix}
+			      -2 & -1 \\
+			      1  & 0  \\
+			      0  & -1 \\
+			      0  & 1
+		      \end{bmatrix}
+	      \]
+	\item[(e)] Find a basis for $N(A^{T})$ using $P$ (do not row-reduce $A^{T}$):
+	      \begin{itemize}
+		      \item[(i)] Let $p_{i}^{T}$ be the $i$-th row of $P$. Use $PA=E$ to identify $p_{i}^{T}A$ for $i=1,2,3$.
+		            \[
+			            PA=E \implies
+			            \left[
+				            \begin{array}{ccc}
+					            0 & 1  & -1 \\
+					            0 & -1 & 2  \\
+					            1 & -1 & 1
+				            \end{array}
+				            \right]
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            2 & 4 & 1 & 3 \\
+					            1 & 2 & 1 & 2
+				            \end{array}
+				            \right] =
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            0 & 0 & 1 & 1 \\
+					            0 & 0 & 0 & 0
+				            \end{array}
+				            \right] \quad
+		            \]
+		            \[
+			            p_1^TA=0^T \implies
+			            \left[
+				            \begin{array}{ccc}
+					            0 & 1 & -1
+				            \end{array}
+				            \right]
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            2 & 4 & 1 & 3 \\
+					            1 & 2 & 1 & 2
+				            \end{array}
+				            \right] =
+			            \left[
+				            \begin{array}{c}
+					            1 \\ 2 \\ 0 \\ 1
+				            \end{array}
+				            \right] \quad
+		            \]
+
+		            \[
+			            p_2^TA=0^T \implies
+			            \left[
+				            \begin{array}{ccc}
+					            0 & -1 & 2
+				            \end{array}
+				            \right]
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            2 & 4 & 1 & 3 \\
+					            1 & 2 & 1 & 2
+				            \end{array}
+				            \right] =
+			            \left[
+				            \begin{array}{c}
+					            0 \\ 0 \\ 1 \\ 1
+				            \end{array}
+				            \right] \quad
+		            \]
+		            \[
+			            p_3^TA=0^T \implies
+			            \left[
+				            \begin{array}{ccc}
+					            1 & -1 & 1
+				            \end{array}
+				            \right]
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            2 & 4 & 1 & 3 \\
+					            1 & 2 & 1 & 2
+				            \end{array}
+				            \right] =
+			            \left[
+				            \begin{array}{c}
+					            0 \\ 0 \\ 0 \\ 0
+				            \end{array}
+				            \right] \quad
+		            \]
+		      \item[(ii)] For each zero row of $E$ (rows $r+1,...,3$) use $p_{i}^{T}A=0^{T}$ and transpose it to obtain $A^{T}p_{i}=0$.
+		            \[
+			            p_3^TA=0^T \implies
+			            \left[
+				            \begin{array}{ccc}
+					            1 & -1 & 1
+				            \end{array}
+				            \right]
+			            \left[
+				            \begin{array}{cccc}
+					            1 & 2 & 0 & 1 \\
+					            2 & 4 & 1 & 3 \\
+					            1 & 2 & 1 & 2
+				            \end{array}
+				            \right] =
+			            \left[
+				            \begin{array}{c}
+					            0 \\ 0 \\ 0 \\ 0
+				            \end{array}
+				            \right] \quad
+		            \]
+		            \[
+			            \implies A^Tp_3 = 0 \implies
+			            \left[
+				            \begin{array}{ccc}
+					            1 & 2 & 1 \\
+					            2 & 4 & 2 \\
+					            0 & 1 & 1 \\
+					            1 & 3 & 2
+				            \end{array}
+				            \right]
+			            \begin{bmatrix}
+				            -1 \\ 2 \\ 1
+			            \end{bmatrix} =
+			            \left[
+				            \begin{array}{c}
+					            0 \\ 0 \\ 0 \\ 0
+				            \end{array}
+				            \right] \quad
+		            \]
+		      \item[(iii)] Conclude that the vectors $p_{r+1},...,p_{3}$ (written as column vectors) form a basis of $N(A^{T})$. Write this basis explicitly and state $\dim(N(A^{T}))$.
+		            \[ E_{3,[1,4]} : P_{3,[1,3]} = \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix} \implies Basis(N(A^T)) = \{ P_{3,[1,3]} \} \]
+		            \[ dim(Nul(A)) = dim(Nul(A^T)) = 1 \]
+	      \end{itemize}
+
+	\item[(f)] Check the dimension identities:
+	      \[
+		      \left[
+			      \begin{array}{ccccc}
+				      \dim(R(A))     & = & \dim(R(A^{T})) & = & r \\
+				      \dim(N(A))     & = & 4-r,                   \\
+				      \dim(N(A^{T})) & = & 3-r.
+			      \end{array}
+			      \right]
+	      \]
+	      \[\text{Recall: } dim(X) = |~\{ \vec{x} : \vec{x} \in X \}~| \]
+	      \[
+		      \begin{array}{rl}
+			      \text{Theorem:}      &                                                                                 \\
+			      \text{Column space:} & \dim(\operatorname{Col}(A)) = \dim(\operatorname{Col}(A^T))                     \\
+			      \text{Row space:}    & \dim(\operatorname{Col}(A^T)) = \dim(\operatorname{Col}(A))                     \\
+			      \text{Rank-nullity:} & \dim(A) - \dim(\operatorname{Nul}(A)) = \dim(A) - \dim(\operatorname{Nul}(A^T))
+		      \end{array}
+	      \]
+	      \[
+		      \text{Theorem: } [Col(A) = Row(A^T)] \land [Row(A) = Col(A^T)]
+	      \]
+	      \[
+		      \left[
+			      \begin{array}{ccccc}
+				      \dim(R(A))     & = & \dim(R(A^{T})) & = & r \\
+				      \dim(N(A))     & = & 4-r,                   \\
+				      \dim(N(A^{T})) & = & 3-r.
+			      \end{array}
+			      \right] \equiv
+		      \begin{bmatrix}
+			      2       \\
+			      4-2 = 2 \\
+			      3-2 = 1
+		      \end{bmatrix}
+	      \]
+
+	\item[(g)] Pick a nonzero $y\in N(A^{T})$ from part (e) and verify $y$ is orthogonal to each basis vector of $R(A)$ from part (b) by computing dot products. Pick a nonzero $x\in N(A)$ from part (d) and verify $x$ is orthogonal to each basis row-vector of $R(A^{T})$ from part (c).
+	      \[
+		      y = \begin{bmatrix}
+			      1 & -1 & 1
+		      \end{bmatrix} \quad \quad
+		      x = \begin{bmatrix}
+			      -2 \\ 1 \\ 0 \\ 0
+		      \end{bmatrix}
+	      \]
+	      \[
+		      \begin{bmatrix} 1 &  -1 &  1 \end{bmatrix}
+		      \begin{bmatrix}
+			      1 \\ 2 \\ 1
+		      \end{bmatrix} = 1(1) + (-1)2 + 1(1) = 0
+	      \]
+	      \[
+		      \begin{bmatrix} 1 &  -1 &  1 \end{bmatrix}
+		      \begin{bmatrix}
+			      0 \\ 1 \\ 1
+		      \end{bmatrix} = 0(1) + -1(1) + 1(1) = 0
+	      \]
+
+	      \[
+		      \begin{bmatrix} -2 & 1 & 0 & 0 \end{bmatrix}  \begin{bmatrix} 1 & 2 & 0 & 1 \end{bmatrix}
+		      = -2 \cdot 1 + 1 \cdot 2 + 0 + 0 = -2 + 2 = 0
+	      \]
+
+	      \[
+		      \begin{bmatrix} -2 & 1 & 0 & 0 \end{bmatrix}  \begin{bmatrix} 0 & 0 & 1 & 1 \end{bmatrix}
+		      = 0 + 0 + 0 + 0 = 0
+	      \]
+	\item[(h)] Let $b=\begin{bmatrix}1\\ 0\\ 1\end{bmatrix}.$ Use one nonzero $y\in N(A^{T})$ to decide whether $b\in R(A)$ by computing $y^{T}b$ and interpreting the result: is $Ax=b$ consistent?
+	      \[
+		      y^Tb =
+		      \begin{bmatrix} 1 & -1 & 1 \end{bmatrix}
+		      \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}
+		      = 1(1) + 0 + 1(1) = 2 \neq 0 \implies \text{Inconsistent}
+	      \]
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\noindent \textbf{Exercise 2} Let $Q\in\mathbb{R}^{n\times n}$ and let its columns be $q_{1},~ \hdots, ~q_{n}.$
+\[
+	Q =
+	\begin{bmatrix}
+		a_{1,1} & 0_{1,2} & \cdots & 0_{1,n} \\
+		0_{2,1} & \ddots  &        & a_{2,n} \\
+		\vdots  &         & \ddots &         \\
+		0_{n,1} &         &        & a_{n,n}
+	\end{bmatrix}
+	= \begin{bmatrix}
+		q_1, q_2, ..., q_n
+	\end{bmatrix}
+\]
+
+\begin{enumerate}
+	\item[(a)] Compute $(Q^{T}Q)_{ij}$ in terms of $q_{i}$ and $q_{j}$. Then state what $Q^{T}Q=I$ says about the columns $q_{1},...,q_{n}$.
+	      \[
+		      Q^TQ = I \implies (Q^{T}Q)_{ij} =
+		      \left \{
+		      \begin{array}{cccc}
+			      i=j      & \implies & q_i^T q_j = 0 \\
+			      i \neq j & \implies & q_i^T q_j = 1
+		      \end{array}
+		      \right .
+	      \]
+	      \[
+		      (Q^{T}Q)_{ij} \implies Q \text{ is an orthonormal set}
+	      \]
+	\item[(b)] Assume $Q^{T}Q=I$. Take determinants of both sides and simplify to conclude $\det(Q)\in\{+1,-1\}$.
+	      \[ Q^TQ=I \implies det(Q^TQ)=det(I) \]
+	      \[
+		      I =
+		      \begin{bmatrix}
+			      1_{1,1} & 0_{1,2} & \cdots & 0_{1,n} \\
+			      0_{2,1} & \ddots  &        & a_{2,n} \\
+			      \vdots  &         & \ddots &         \\
+			      0_{n,1} &         &        & 1_{n,n}
+		      \end{bmatrix}
+	      \]
+	      \[
+		      \implies det(I) = 1_{1,1} \cdot 1_{2,2} \cdot \hdots, 1_{n,n} = 1
+	      \]
+	      \[
+		      \forall ~A, ~det(A) = det(A^T) \implies det(Q^TQ) = det(Q)det(Q) = det(Q)^2 = det(I) = 1
+	      \]
+	      \[
+		      (det(Q))^2 = 1 \implies det(Q) = \pm 1
+	      \]
+
+	\item[(c)] Assume $Q_{1}^{T}Q_{1}=I$ and $Q_{2}^{T}Q_{2}=I.$ Compute and simplify $(Q_{1}Q_{2})^{T}(Q_{1}Q_{2})$ to verify that $Q_{1}Q_{2}$ is orthogonal.
+	      \[
+		      (Q_1Q_2)^T = Q_2^TQ_1^T
+	      \]
+	      \[
+		      \implies (Q_2^TQ_1^T)(Q_1Q_2) = Q_2^T(Q_1^TQ_1)Q_2 = Q_2^T(I)Q_2 = Q_2^TQ_2 = I
+	      \]
+	      \[
+		      \therefore Q_1Q_2 \text{ is orthogonal }
+	      \]
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\noindent \textbf{Exercise 3 (Householder reflector)} Let $u\in\mathbb{R}^{n}$ satisfy $u^{T}u=1$ and define
+\[ H=I-2uu^T. \]
+\begin{enumerate}
+	\item[(a)] Compute and simplify $H^{T}H$ (expand and use $u^{T}u=1$) to verify that $H^{T}H=I$.
+	      \[ \text{Note: } (uu^T)^T = (u^T)^Tu^T = uu^T \]
+	      \[
+		      \begin{gathered}
+			      \\H^TH =
+			      (I-2uu^T)^T (I-2uu^T)
+			      \\ = (I-2uu^T) (I-2uu^T) \quad  \tiny{\text{Let $2uu^T=x$}}
+			      \\ = (I-x)(I-x)
+			      \\ = I(I-x)-x(I-x)
+			      \\ = I^2 -Ix -Ix +x^2
+			      \\ = I -2Ix+x^2
+			      \\ x^2 = (2uu^T)^2 = (4uu^Tuu^T)
+			      \\ = I-4Iuu^T+4uu^Tuu^T
+			      \\ = I-4Iuu^T+4u(u^Tu)u^T
+			      \\ = I-4Iuu^T+4uu^T
+			      \\ \therefore H^TH = I
+		      \end{gathered}
+	      \]
+	\item[(b)] Verify that $H^{T}=H$ and $H^{2}=I.$
+	      \[ H^TH = (I-2uu^T)^T (I-2uu^T) = HH \implies H^T = H \]
+          \[ \implies H^TH = HH = H^M = I \text{ By pf. above} \] 
+\end{enumerate}
+\end{document}
