@@ -11,10 +11,14 @@
             "id": "92537a94f25018a3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "L08.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "L08"
             }
           }
         ]
@@ -181,7 +185,12 @@
   },
   "active": "92537a94f25018a3",
   "lastOpenFiles": [
+    "L08.md~",
+    "4913",
+    "L07.md",
     "L01.md",
+    "L08.md",
+    "L07.md~",
     "L02.md",
     "L03.md",
     "L03x.md",
@@ -193,15 +202,12 @@
     "main.md~",
     "My Note.md",
     "L06.md~",
-    "4913",
     "L05.md~",
     "L04.md~",
     "indent.log",
     "1770908989-EZOK.md",
     "1770908989-EZOK.md~",
     "1770301034-TEDP.md~",
-    "L03.md~",
-    "Lec",
     "Untitled.md",
     "Main.md",
     "1769789104-QRVN.md",
