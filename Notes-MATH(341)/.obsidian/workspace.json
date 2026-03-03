@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "L08.md",
-                "mode": "preview",
+                "file": "L09.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L08"
+              "title": "L09"
             }
           },
           {
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "ac13922b8b75e6e2",
@@ -200,6 +201,7 @@
   },
   "active": "68167d3b956b5673",
   "lastOpenFiles": [
+<<<<<<< HEAD
     "L08u.md~",
     "L08.md",
     "L08u.md",
@@ -212,30 +214,54 @@
     "L02.md",
     "L03.md",
     "L03x.md",
+=======
+    "L09.md~",
+    "4913",
+    "s01/L06.md",
+    "Dump/L06 - Orthogonal Projectors.md",
+    "Dump/L06 - Orthonormal Columns and Orthogonal Matrices.md",
+    "Dump/L06 - Linear Transformations.md",
+    "Dump/L06 - Orthogonal Complements and the Four Fundamental Subspaces.md",
+    "L09.md",
+    "indent.log",
+    "s01/L08.md",
+    "Dump/L04 - Four Fundamental Subspaces.md",
+    "Dump/L04 - Rectangular Systems and Echelon Form.md",
+    "Dump/L04 - Cholesky Factorization.md",
+    "Dump/L03 - LU Factorization.md",
+    "Dump/L06 - Orthonormal Bases and Fourier Expansion.md",
+    "Dump/L08 - L08 — Orthogonal Matrices Reflectors and Rotators.md",
+    "Dump",
+    "pull_course_website.sh",
+    "main.md",
+    "My Note.md",
+    "L08.md",
+    "L07.md",
+    "L06.md",
+>>>>>>> f31b3fe (lec)
     "L05.md",
     "L04.md",
-    "L06.md",
-    "1770301034-TEDP.md",
-    "main.md",
+    "L03x.md",
+    "L03.md",
+    "L02.md",
+    "L01.md",
+    "1770908989-EZOK.md",
+    "L08.md~",
+    "L07.md~",
     "main.md~",
-    "My Note.md",
     "L06.md~",
     "L05.md~",
+<<<<<<< HEAD
     "L04.md~",
     "indent.log",
     "1770908989-EZOK.md",
     "Untitled.md",
     "Main.md",
     "1769789104-QRVN.md",
+=======
+>>>>>>> f31b3fe (lec)
     "assets/imgs/diag.png",
-    "1766975367-NRVZ.md",
     "assets/imgs/fig_1-3-1.png",
-    "1768247161-HOSZ.md",
-    "1769795527-WXDI.md",
-    "1766962818-EODE.md",
-    "1769795497-JXKS.md",
-    "assets/imgs/fig_(1-3-1).png",
-    "1766973264-EXXS.md",
-    "1766959914-XULY.md"
+    "assets/imgs/fig_(1-3-1).png"
   ]
 }
