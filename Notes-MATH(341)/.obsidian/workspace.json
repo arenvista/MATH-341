@@ -1,69 +1,54 @@
 {
   "main": {
-    "id": "b63d5a2a126f3484",
+    "id": "fb358090eb5f8007",
     "type": "split",
     "children": [
       {
-        "id": "e35161c0cdb45f34",
+        "id": "3da665348ef0845a",
         "type": "tabs",
         "children": [
           {
-            "id": "92537a94f25018a3",
+            "id": "44f807034e9f4f7b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "L09.md",
+                "file": "LecFormated/L10.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L09"
-            }
-          },
-          {
-            "id": "68167d3b956b5673",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "L08u.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "L08u"
+              "title": "L10"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "09421bcd9d8341c1",
+    "id": "a1b1a5898baff126",
     "type": "split",
     "children": [
       {
-        "id": "6cc74c85de47a2a6",
+        "id": "8b9fa620bc325cdb",
         "type": "tabs",
         "children": [
           {
-            "id": "dfd90b087e7935e5",
+            "id": "8f47e1310d070d39",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
             }
           },
           {
-            "id": "beec1ccfbf10b7ce",
+            "id": "3bff2fd81288666b",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -80,7 +65,7 @@
             }
           },
           {
-            "id": "54a75ba722af63b3",
+            "id": "03ff7e8cf08a9108",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -93,24 +78,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
-    "id": "ac13922b8b75e6e2",
+    "id": "479e8e396b9de96c",
     "type": "split",
     "children": [
       {
-        "id": "ab46bbee7db821ad",
+        "id": "0ae8f8f46d1cd9c2",
         "type": "tabs",
         "children": [
           {
-            "id": "365e7a47d2415795",
+            "id": "a2f8691cc4e70491",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Main.md",
+                "file": "Dump/L08 - L08 — Orthogonal Matrices Reflectors and Rotators.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Main"
+              "title": "Backlinks for L08 - L08 — Orthogonal Matrices Reflectors and Rotators"
             }
           },
           {
-            "id": "04d71d584085d6e9",
+            "id": "9cd0df22280c9094",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Main.md",
+                "file": "Dump/L08 - L08 — Orthogonal Matrices Reflectors and Rotators.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Main"
+              "title": "Outgoing links from L08 - L08 — Orthogonal Matrices Reflectors and Rotators"
             }
           },
           {
-            "id": "273ded81b09f9164",
+            "id": "ef9536f853fc789f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -153,7 +137,7 @@
             }
           },
           {
-            "id": "935f3f1c7681519e",
+            "id": "f874ba75e75a3c06",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -167,18 +151,18 @@
             }
           },
           {
-            "id": "28905abdd9b7dcf5",
+            "id": "3997e0cc5ba42e98",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Main.md",
+                "file": "Dump/L08 - L08 — Orthogonal Matrices Reflectors and Rotators.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Main"
+              "title": "Outline of L08 - L08 — Orthogonal Matrices Reflectors and Rotators"
             }
           }
         ]
@@ -199,69 +183,40 @@
       "bases:Create new base": false
     }
   },
-  "active": "68167d3b956b5673",
+  "active": "44f807034e9f4f7b",
   "lastOpenFiles": [
-<<<<<<< HEAD
-    "L08u.md~",
-    "L08.md",
-    "L08u.md",
-    "L01.md",
-    "L01.md~",
-    "L08.md~",
+    "LecFormated/L02.md",
+    "LecFormated/L10.md",
+    "Atomized/H1/L10 - QR-Based Least Squares, Norms, Matrix Norms, Condition Numbers, and Floating-Point Arithmetic.md",
+    "LecFormated/L10.md~",
+    "Atomized/H2/L03 - LU Factorization - Partial Pivoting.md",
+    "Atomized/H1/L03 - LU Factorization.md",
+    "LecFormated/L03.md",
+    "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonality Relations for a Matrix A.md",
+    "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonal Complements.md",
+    "Atomized/H2/L05 - Rectangular Systems — Echelon Form - Nonhomogeneous Systems.md",
+    "Atomized/H2/L05 - Rectangular Systems — Echelon Form - Homogeneous Systems.md",
+    "Atomized/H2/L04 - Cholesky Factorization - Block Matrices.md",
+    "Atomized/H2/L04 - Cholesky Factorization - Symmetric Positive Definite (SPD).md",
+    "Atomized/H2/L07 - Modified Gram–Schmidt (MGS) - Summary Key Identities.md",
+    "Atomized/H2/L07 - Modified Gram–Schmidt (MGS) - Projector Viewpoint for MGS.md",
+    "Atomized/H2/L09 - Least Squares - 9) Key Formulas and Takeaways.md",
+    "Atomized/H2/L09 - Least Squares - 8) Solving Least Squares Without Normal Equations.md",
+    "Atomized/H2/L09 - Least Squares - 7) Nonlinear Models and Data Linearization.md",
+    "Atomized/H2/L09 - Least Squares - 6) Linear-in-Parameters Models.md",
+    "Atomized/H2/L09 - Least Squares - 5) Example Best-Fit Parabola.md",
+    "Atomized/H2/L09 - Least Squares - 4) Example Best-Fit Line.md",
+    "Atomized/H2/L09 - Least Squares - 3) Data Fitting via Least Squares.md",
+    "Atomized/H2/L09 - Least Squares - 2) Geometric Perspective and Normal Equations.md",
+    "Atomized/H2/L09 - Least Squares - 1) Motivating Overdetermined System.md",
+    "Atomized/H2/L05 - Four Fundamental Subspaces - Spanning Sets from Echelon Form.md",
+    "Atomized/H2/L05 - Four Fundamental Subspaces - Null Space and Left Null Space.md",
+    "Atomized/H2/L05 - Four Fundamental Subspaces - Column and Row Space.md",
+    "LecFormated",
+    "Atomized/H2",
+    "Atomized/H1",
+    "L10.md~",
     "4913",
-    "L07.md",
-    "L07.md~",
-    "L02.md",
-    "L03.md",
-    "L03x.md",
-=======
-    "L09.md~",
-    "4913",
-    "s01/L06.md",
-    "Dump/L06 - Orthogonal Projectors.md",
-    "Dump/L06 - Orthonormal Columns and Orthogonal Matrices.md",
-    "Dump/L06 - Linear Transformations.md",
-    "Dump/L06 - Orthogonal Complements and the Four Fundamental Subspaces.md",
-    "L09.md",
-    "indent.log",
-    "s01/L08.md",
-    "Dump/L04 - Four Fundamental Subspaces.md",
-    "Dump/L04 - Rectangular Systems and Echelon Form.md",
-    "Dump/L04 - Cholesky Factorization.md",
-    "Dump/L03 - LU Factorization.md",
-    "Dump/L06 - Orthonormal Bases and Fourier Expansion.md",
-    "Dump/L08 - L08 — Orthogonal Matrices Reflectors and Rotators.md",
-    "Dump",
-    "pull_course_website.sh",
-    "main.md",
-    "My Note.md",
-    "L08.md",
-    "L07.md",
-    "L06.md",
->>>>>>> f31b3fe (lec)
-    "L05.md",
-    "L04.md",
-    "L03x.md",
-    "L03.md",
-    "L02.md",
-    "L01.md",
-    "1770908989-EZOK.md",
-    "L08.md~",
-    "L07.md~",
-    "main.md~",
-    "L06.md~",
-    "L05.md~",
-<<<<<<< HEAD
-    "L04.md~",
-    "indent.log",
-    "1770908989-EZOK.md",
-    "Untitled.md",
-    "Main.md",
-    "1769789104-QRVN.md",
-=======
->>>>>>> f31b3fe (lec)
-    "assets/imgs/diag.png",
-    "assets/imgs/fig_1-3-1.png",
-    "assets/imgs/fig_(1-3-1).png"
+    "!"
   ]
 }

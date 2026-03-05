@@ -42,6 +42,8 @@ Output ONLY the formatted markdown text. Do not include introductory conversatio
 Focus on clean formatting, center, use lists, and tables to help organize when appropriate. 
 
 **Keep explanations easy to follow, stay within the context provided**
+
+WRITE AND DEMARK ADDITIONAL EXPLANATIONS, SHOW LOGIC CLEARLY
 """
 
 
