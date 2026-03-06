@@ -163,7 +163,6 @@
 		0 & 1 & 0 \\
 		0 & 0 & 1
 	\end{bmatrix}
-
 \]
 
 \subsection{P.2}
@@ -207,13 +206,11 @@
 \[
 	\begin{gathered}
 		\text{What multiple of $a$ should be substraced from $b$ to make the resut $A_2$ orthogonal to $a$? Sketch a figure to show $a,b,A_2$} \\
-		a = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad\quad b = \begin{bmatrix} 4 \\ 0 \end{bmatrix} \\
-	\end{gathered}
-\]
-\[
-	\begin{gathered}
-		\exists~ A_2         =  b-xa \ni A_2 \perp a                                           \\
-		\implies a \cdot A_2 =  0  = a \cdot (b-xa) =  0 ab-xaa =  0                           \\
+		a = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad\quad b = \begin{bmatrix} 4 \\ 0 \end{bmatrix} \\ \\
+		\exists~ A_2 =  b-xa \ni A_2 \perp a                                           \\
+		\implies  a \cdot A_2 = 0 \quad\quad
+		\implies  a \cdot (b-xa) = 0 \quad\quad
+		\implies  ab-xaa =  0 \\
 		\implies x           =  \frac{ab}{aa} = \frac{(1 \times 4) + (0)}{2} = \frac{4}{2} = 2 \\
 		A_2                  =  b -2a = \begin{bmatrix} 2 \\ -2 \end{bmatrix}
 	\end{gathered}
@@ -249,24 +246,79 @@
 \section{Question 5}
 \begin{center} Complete the Gram-Schmidt process in the prior problem via computing \end{center}
 \[
-	a_1 = \frac{a}{\left\| a \right\|} \quad\quad \\
+	q_1 = \frac{a}{\left\| a \right\|} \quad\quad \\
 	A_2 = b - (b^Tq_1)q_1 \quad\quad \\
 	q_2 = \frac{A_2}{\left\| A_2 \right\|} \quad\quad
 \]
 \[
-    a = 
-    \begin{bmatrix}
-        1 \\ 1
-    \end{bmatrix}
-    b = 
-    \begin{bmatrix}
-        4 \\ 0
-    \end{bmatrix}
-    A_2 = 
-    \begin{bmatrix}
-        2 \\ -2
-    \end{bmatrix}
-\] 
+	a =
+	\begin{bmatrix}
+		1 \\ 1
+	\end{bmatrix}
+	b =
+	\begin{bmatrix}
+		4 \\ 0
+	\end{bmatrix}
+	A_2 =
+	\begin{bmatrix}
+		2 \\ -2
+	\end{bmatrix}
+\]
 
+\[
+	\left\| a \right\| = \sqrt{1^2 + 1^2} = \sqrt{2} \implies q_1 =
+	\begin{bmatrix}
+		\frac{1}{\sqrt{2}} \\
+		\frac{1}{\sqrt{2}}
+	\end{bmatrix}
+	\\
+\]
+
+\[
+	b^Tq_1 = \begin{bmatrix} 4 & 0 \end{bmatrix}
+	\begin{bmatrix}
+		\frac{1}{\sqrt{2}} \\
+		\frac{1}{\sqrt{2}}
+	\end{bmatrix}
+	= \frac{4}{\sqrt{2}}
+\]
+\[
+	\frac{4}{\sqrt{2}}
+	\begin{bmatrix}
+		\frac{1}{\sqrt{2}} \\
+		\frac{1}{\sqrt{2}}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		2 \\
+		2
+	\end{bmatrix}
+\]
+\[
+	\begin{bmatrix}
+		4 \\ 0
+	\end{bmatrix} -
+	\begin{bmatrix}
+		2 \\
+		2
+	\end{bmatrix} =
+	\begin{bmatrix}
+		2 \\ -2
+	\end{bmatrix} = A_2
+\]
+
+\[
+	\left\| A_2 \right\| = \sqrt{4 + 4} = 2 \sqrt{2}
+\]
+\[
+	q_2 = \frac{1}{\sqrt{2}}
+	\begin{bmatrix}
+		2 \\ -2
+	\end{bmatrix} =
+	\begin{bmatrix}
+		\frac{1}{\sqrt{2}} \\
+		-\frac{1}{\sqrt{2}}
+	\end{bmatrix}
+\]
 
 \end{document}
