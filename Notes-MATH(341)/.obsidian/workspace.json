@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LecFormated/L10.md",
+                "file": "LecFormated/L02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L10"
+              "title": "L02"
             }
           }
         ]
@@ -185,13 +185,22 @@
   },
   "active": "44f807034e9f4f7b",
   "lastOpenFiles": [
-    "LecFormated/L02.md",
+    "LecFormated/L03.md",
+    "LecFormated/L04.md",
+    "LecFormated/L05.md",
+    "LecFormated/L06.md",
+    "LecFormated/L07.md",
+    "LecFormated/L08.md",
+    "LecFormated/L09.md",
     "LecFormated/L10.md",
+    "Atomized/H2/L02 - Matrix Factorization Methods - LU Factorization.md",
+    "Atomized/H1/L01 - L01 — Course Overview and Basic Matrix Algebra.md",
+    "LecFormated/L01.md",
+    "LecFormated/L02.md",
     "Atomized/H1/L10 - QR-Based Least Squares, Norms, Matrix Norms, Condition Numbers, and Floating-Point Arithmetic.md",
     "LecFormated/L10.md~",
     "Atomized/H2/L03 - LU Factorization - Partial Pivoting.md",
     "Atomized/H1/L03 - LU Factorization.md",
-    "LecFormated/L03.md",
     "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonality Relations for a Matrix A.md",
     "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonal Complements.md",
     "Atomized/H2/L05 - Rectangular Systems — Echelon Form - Nonhomogeneous Systems.md",
@@ -203,15 +212,6 @@
     "Atomized/H2/L09 - Least Squares - 9) Key Formulas and Takeaways.md",
     "Atomized/H2/L09 - Least Squares - 8) Solving Least Squares Without Normal Equations.md",
     "Atomized/H2/L09 - Least Squares - 7) Nonlinear Models and Data Linearization.md",
-    "Atomized/H2/L09 - Least Squares - 6) Linear-in-Parameters Models.md",
-    "Atomized/H2/L09 - Least Squares - 5) Example Best-Fit Parabola.md",
-    "Atomized/H2/L09 - Least Squares - 4) Example Best-Fit Line.md",
-    "Atomized/H2/L09 - Least Squares - 3) Data Fitting via Least Squares.md",
-    "Atomized/H2/L09 - Least Squares - 2) Geometric Perspective and Normal Equations.md",
-    "Atomized/H2/L09 - Least Squares - 1) Motivating Overdetermined System.md",
-    "Atomized/H2/L05 - Four Fundamental Subspaces - Spanning Sets from Echelon Form.md",
-    "Atomized/H2/L05 - Four Fundamental Subspaces - Null Space and Left Null Space.md",
-    "Atomized/H2/L05 - Four Fundamental Subspaces - Column and Row Space.md",
     "LecFormated",
     "Atomized/H2",
     "Atomized/H1",
