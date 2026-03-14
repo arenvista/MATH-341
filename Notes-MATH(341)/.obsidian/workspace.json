@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "E1.md",
+                "file": "Lec/L01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "E1"
+              "title": "L01"
             }
           }
         ]
@@ -74,13 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "479e8e396b9de96c",
@@ -187,40 +185,40 @@
   },
   "active": "3304a441e37f4734",
   "lastOpenFiles": [
-    "E1.md~",
-    "LecNew/L11.md",
-    "E1.md",
-    "4913",
-    "LecFormated/L07.md",
-    "indent.log",
-    "LecNew/E1.md~",
-    "LecNew/E1.md",
-    "LecFormated/L07.md~",
-    "LecNew/L11.md~",
-    "LecNew/4913",
-    "LecFormated/L10.md",
-    "LecFormated/L05.md",
-    "Atomized/H1/L09 - Least Squares.md",
-    "Atomized/H1/L03 - LU Factorization.md",
-    "Untitled.md",
+    "Lec/L02.md~",
+    "Lec/L02.md",
+    "Lec/L03.md",
+    "Lec/L03.md~",
+    "Lec/L04.md",
+    "Lec/L05.md",
+    "Lec/L06.md",
+    "Lec/L06.md~",
+    "Lec/L07.md",
+    "Lec/L07.md~",
+    "Lec/L08.md",
+    "Lec/L08.md~",
+    "Lec/L09.md",
+    "Lec/L10.md",
+    "Lec/L10.md~",
+    "Lec/L11.md",
+    "Lec/L11.md~",
+    "Lec/L09.md~",
+    "Lec/L01.md~",
+    "Lec/L04.md~",
+    "Lec/L01.md",
+    "LecFormated/L02.md",
     "LecFormated/L03.md",
     "LecFormated/L04.md",
+    "LecFormated/L05.md",
     "LecFormated/L06.md",
-    "LecFormated/L08.md",
+    "LecFormated/L07.md",
     "LecFormated/L09.md",
-    "Atomized/H2/L02 - Matrix Factorization Methods - LU Factorization.md",
-    "Atomized/H1/L01 - L01 — Course Overview and Basic Matrix Algebra.md",
-    "LecFormated/L01.md",
-    "LecFormated/L02.md",
-    "Atomized/H1/L10 - QR-Based Least Squares, Norms, Matrix Norms, Condition Numbers, and Floating-Point Arithmetic.md",
-    "LecFormated/L10.md~",
-    "Atomized/H2/L03 - LU Factorization - Partial Pivoting.md",
-    "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonality Relations for a Matrix A.md",
-    "Atomized/H2/L05 - Orthogonality of Fundamental Subspaces - Orthogonal Complements.md",
-    "Atomized/H2/L05 - Rectangular Systems — Echelon Form - Nonhomogeneous Systems.md",
-    "Atomized/H2/L05 - Rectangular Systems — Echelon Form - Homogeneous Systems.md",
-    "Atomized/H2/L04 - Cholesky Factorization - Block Matrices.md",
-    "LecFormated",
-    "Atomized/H2"
+    "E1.md",
+    "LecNew/L11.md",
+    "LecNew/E1.md",
+    "LecFormated/L10.md",
+    "Atomized/H1/L09 - Least Squares.md",
+    "Atomized/H1/L03 - LU Factorization.md",
+    "Untitled.md"
   ]
 }
