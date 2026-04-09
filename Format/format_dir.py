@@ -38,12 +38,6 @@ The environment supports the following callout types:
 .callout[data-callout="imp"]
 
 Output ONLY the formatted markdown text. Do not include introductory conversational filler.
-
-Focus on clean formatting, center, use lists, and tables to help organize when appropriate. 
-
-**Keep explanations easy to follow, stay within the context provided**
-
-WRITE AND DEMARK ADDITIONAL EXPLANATIONS, SHOW LOGIC CLEARLY
 """
 
 

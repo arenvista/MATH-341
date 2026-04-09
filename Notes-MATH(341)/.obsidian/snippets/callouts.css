@@ -10,6 +10,12 @@
     --callout-icon: "lucide-puzzle";
 }
 
+/* --- LEMMA (Teal/Cyan) --- */
+.callout[data-callout="hum"] {
+    --callout-color: 48, 176, 199; /* Cyan */
+    --callout-icon: "lucide-brain";
+}
+
 /* --- COROLLARY (Purple) --- */
 .callout[data-callout="cor"] {
     --callout-color: 175, 82, 222; /* Purple */
@@ -19,11 +25,6 @@
 /* --- DEFINITION (Green) --- */
 .callout[data-callout="def"] {
     --callout-color: 52, 199, 89; /* Green */
-    --callout-icon: "lucide-book-open";
-}
-
-.callout[data-callout="ex"] {
-    --callout-color: 182, 182, 187; /* Green */
     --callout-icon: "lucide-book-open";
 }
 
@@ -43,4 +44,25 @@
     text-align: right;
     margin-top: -1em; /* Pulls it up slightly */
     color: rgba(var(--callout-color), 1);
+}
+
+/* --- CASE (Orange) --- */
+/* Used for specific scenarios, use cases, or 'Case 1' in proofs */
+.callout[data-callout="case"] {
+    --callout-color: 255, 149, 0; /* Orange */
+    --callout-icon: "lucide-briefcase";
+}
+
+/* --- QUESTION (Yellow/Gold) --- */
+/* Used for inquiries, open problems, or FAQs */
+.callout[data-callout="?"] {
+    --callout-color: 255, 204, 0; /* Golden Yellow */
+    --callout-icon: "lucide-help-circle";
+}
+
+/* --- IMPORTANT (Red) --- */
+/* Used for critical warnings, key takeaways, or risks */
+.callout[data-callout="imp"] {
+    --callout-color: 255, 59, 48; /* Red */
+    --callout-icon: "lucide-alert-circle";
 }
