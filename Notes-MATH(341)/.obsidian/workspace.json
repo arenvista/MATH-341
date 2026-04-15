@@ -1,31 +1,24 @@
 {
   "main": {
-    "id": "81d205b4e5d2e8f6",
+    "id": "876a8cabbcf00cc2",
     "type": "split",
     "children": [
       {
-        "id": "2db7bcc7ac87b3be",
+        "id": "994ecee48e077d72",
         "type": "tabs",
         "children": [
           {
-            "id": "823e147280f9e752",
+            "id": "c0d5e0e300e85ef4",
             "type": "leaf",
             "state": {
-<<<<<<< HEAD
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-=======
               "type": "markdown",
               "state": {
-                "file": "LecNew/L16u.md",
+                "file": "Lec/L16.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L16u"
->>>>>>> e506e65 (lec 16)
+              "title": "L16"
             }
           }
         ]
@@ -34,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "0dc947c22e243169",
+    "id": "91f211baf4cff79d",
     "type": "split",
     "children": [
       {
-        "id": "81f46ad729975eec",
+        "id": "2a3b6ac3c9ed7842",
         "type": "tabs",
         "children": [
           {
-            "id": "06137368e6442805",
+            "id": "ade760372add151a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -55,12 +48,12 @@
             }
           },
           {
-            "id": "3c75d051047d3949",
+            "id": "a8213522c506fb73",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "archimed",
+                "query": "schor",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -72,7 +65,7 @@
             }
           },
           {
-            "id": "bf698fe5be1e4a02",
+            "id": "b472476543d60d80",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -89,21 +82,22 @@
     "collapsed": true
   },
   "right": {
-    "id": "d1576371ef04b96d",
+    "id": "92690b3d463b7925",
     "type": "split",
     "children": [
       {
-        "id": "7c7752287b863bdb",
+        "id": "2af01c0e22be40d5",
         "type": "tabs",
         "children": [
           {
-            "id": "beef69d01f26cad6",
+            "id": "aa82eeef9a87006c",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": true,
-                "extraContext": true,
+                "file": "Lec/L05.md",
+                "collapseAll": false,
+                "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -111,16 +105,16 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for L05"
             }
           },
           {
-            "id": "5d9942dc135074ce",
+            "id": "cb631cf366034ef0",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "L05.md",
+                "file": "Lec/L05.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -129,7 +123,7 @@
             }
           },
           {
-            "id": "a77f599436560a68",
+            "id": "49ae13163cc13f17",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -144,12 +138,12 @@
             }
           },
           {
-            "id": "d53e05c204d254af",
+            "id": "57a5b94a7d950c5b",
             "type": "leaf",
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -158,31 +152,21 @@
             }
           },
           {
-            "id": "629db17f5725c119",
+            "id": "77e0910523d0af86",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "Lec/L05.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
-            }
-          },
-          {
-            "id": "6cf3322c2a42ef4a",
-            "type": "leaf",
-            "state": {
-              "type": "footnotes",
-              "state": {},
-              "icon": "lucide-file-signature",
-              "title": "Footnotes"
+              "title": "Outline of L05"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -197,86 +181,32 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "audio-recorder:Start/stop recording": false,
       "markdown-importer:Open format converter": false,
-      "publish:Publish changes...": false,
       "zk-prefixer:Create new unique note": false,
+      "audio-recorder:Start/stop recording": false,
       "workspaces:Manage workspace layouts": false,
+      "publish:Publish changes...": false,
+      "bases:Create new base": false,
       "print:Print note": false
     }
   },
-  "active": "823e147280f9e752",
+  "active": "c0d5e0e300e85ef4",
   "lastOpenFiles": [
-<<<<<<< HEAD
-    "LecNew/L16u.md",
-    "indent.log",
-    "Welcome to Numerical Linear Algebra.md",
-    "Lec/L11.md",
-    "Lec/L10.md",
-    "Lec/L09.md",
-    "Lec/L08.md",
-    "Lec/L07.md",
-    "Lec/L06.md",
-    "Lec/L05.md",
+    "Lec/L16.md~",
+    "Lec/L15.md",
+    "Lec/L16.md",
     "Lec/L04.md",
-    "Lec/L03.md",
-    "Lec/L02.md",
-    "Lec/L01.md",
-    "Lec",
-=======
->>>>>>> e506e65 (lec 16)
-    "LecNew/L16u.md~",
-    "LecNew/L16.md",
-    "LecNew/L16.md~",
-    "LecNew/4913",
-    "LecFormated/L15.md",
-<<<<<<< HEAD
-=======
-    "LecNew/L16u.md",
->>>>>>> e506e65 (lec 16)
-    "LecNew/L15.md",
-    "Atomized/Defs/Defs.md~",
-    "Atomized/Defs/Defs.md",
-    "Atomized/Defs/Semi-Simple.md~",
-    "Atomized/Defs/Semi-Simple.md",
-    "Atomized/Defs",
-    "LecNew/L13.md",
-    "LecNew/L15.md~",
-    "LecFormated/L11.md",
-    "LecNew/L12.md",
-    "LecNew/L11.md",
-    "LecNew/L10.md",
-    "LecNew/L09.md",
-    "LecNew/L08.md",
-<<<<<<< HEAD
-    "Untitled.base",
-=======
-    "LecNew/L07.md",
-    "LecNew/L06.md",
-    "LecNew/L05.md",
-    "LecNew/L04.md",
-    "LecNew/L03.md",
-    "LecNew/L02.md",
-    "LecNew/L01.md",
-    "LecFormated/L06.md",
-    "LecFormated/L14.md",
-    "LecFormated/L13.md",
-    "LecFormated/L12.md",
-    "LecFormated/L08.md",
-    "Untitled.base",
-    "LecNew/L09.md~",
-    "LecNew/L07.md~",
->>>>>>> e506e65 (lec 16)
-    "quartz/public/index-og-image.webp",
-    "quartz/public/LecFormated/L11-og-image.webp",
-    "quartz/public/LecFormated/L10-og-image.webp",
-    "quartz/public/LecFormated/L09-og-image.webp",
-    "quartz/public/LecFormated/L08-og-image.webp",
-    "quartz/public/LecFormated/L07-og-image.webp",
-    "quartz/public/LecFormated/L06-og-image.webp",
-    "quartz/public/LecFormated/L05-og-image.webp",
-    "quartz/public/LecFormated/L04-og-image.webp",
-    "quartz/public/LecFormated/L03-og-image.webp"
+    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec/L04.md",
+    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec",
+    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)",
+    "home/sybil/Documents/School/2026-Spring/MATH-341",
+    "home/sybil/Documents/School/2026-Spring",
+    "home/sybil/Documents/School",
+    "home/sybil/Documents",
+    "home/sybil",
+    "home",
+    "Notes-MATH(341)/Lec/L16.md",
+    "Notes-MATH(341)/Lec",
+    "Lec/L05.md"
   ]
 }
