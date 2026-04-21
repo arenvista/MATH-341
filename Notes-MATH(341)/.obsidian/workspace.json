@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lec/L16.md",
+                "file": "Lec/L17.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L16"
+              "title": "L17"
             }
           }
         ]
@@ -192,9 +192,16 @@
   },
   "active": "c0d5e0e300e85ef4",
   "lastOpenFiles": [
+    "Lec/L17.md~",
+    "Lec/L18.md",
+    "Lec/L18.md~",
+    "LecFormated/L07.md",
+    "LecFormated/L17.md",
+    "LecFormated/L17.md~",
+    "Lec/L16.md",
+    "Lec/L17.md",
     "Lec/L16.md~",
     "Lec/L15.md",
-    "Lec/L16.md",
     "Lec/L04.md",
     "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec/L04.md",
     "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec",
@@ -203,10 +210,7 @@
     "home/sybil/Documents/School/2026-Spring",
     "home/sybil/Documents/School",
     "home/sybil/Documents",
-    "home/sybil",
-    "home",
     "Notes-MATH(341)/Lec/L16.md",
-    "Notes-MATH(341)/Lec",
     "Lec/L05.md"
   ]
 }
