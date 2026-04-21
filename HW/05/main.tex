@@ -1,0 +1,521 @@
+\input{template.tex}
+\setupHW{MATH 341: Howework 5}
+\begin{document}
+\maketitle
+\section{Question 1}
+Let $A$ be defined as:
+\[
+	A :=
+	\begin{bmatrix}
+		4 & 0 & 1 \\
+		0 & 2 & 0 \\
+		1 & 0 & 4
+	\end{bmatrix}
+\]
+This matrix is symmetric. As a hint, $\lambda=2$ is one eigenvalue.
+\begin{enumerate}
+	\item[(a)] Find all eigenvalues of $A$.
+	\item[(b)] Find an eigenvector for each eigenvalue.
+	\item[(c)] Verify that your eigenvectors are mutually orthogonal.
+	\item[(d)] Normalize your eigenvectors to form an orthogonal matrix $Q$, and write down a diagonal matrix $\Lambda$ such that \[ A = Q\Lambda Q^T. \]
+\end{enumerate}
+\subsection{Find all eigenvalues of $A$.}
+\[
+	A-\lambda I :=
+	\begin{bmatrix}
+		4-\lambda & 0         & 1         \\
+		0         & 2-\lambda & 0         \\
+		1         & 0         & 4-\lambda
+	\end{bmatrix}
+\]
+Determinant:
+\[
+	(2-\lambda) \det \begin{bmatrix}
+		4-\lambda & 1         \\
+		1         & 4-\lambda
+	\end{bmatrix}
+\]
+Characteristic Equation:
+\[
+	\begin{aligned}
+		0          & = (2-\lambda) \left[ (4-\lambda)^2 - 1 \right]              \\
+		0          & = (2-\lambda)(4-\lambda)^2 - (2-\lambda)                    \\
+		0          & = (2-\lambda)(16 -8\lambda + \lambda^2) - (2-\lambda)       \\
+		0          & = (2-\lambda)[(16 -8\lambda + \lambda^2) - 1]               \\
+		0          & = (2-\lambda)[15 -8\lambda + \lambda^2 ]                    \\
+		0          & = (2-\lambda)(\lambda-3)(\lambda-5)                         \\
+		\therefore & \quad \lambda_2 = 2 \quad \lambda_3 = 3 \quad \lambda_5 = 5
+	\end{aligned}
+\]
+\subsection{Find an eigenvector for each eigenvalue.}
+\begin{center}
+	Let $M_n := A-\lambda_n I ~.~ n \in \{ 2,3,5 \}$ \quad\quad Let $V_n := \mathscr{B}[Nul(M_n)] ~.~ n \in \{ 2,3,5 \}$
+\end{center}
+\[
+	A-\lambda_2 I =
+	\begin{bmatrix}
+		2 & 0 & 1 \\
+		0 & 0 & 0 \\
+		1 & 0 & 2
+	\end{bmatrix} \implies
+	Nul(A-\lambda_2 I) = \begin{bmatrix}1&0&0\\ 0&0&1\\ 0&0&0\end{bmatrix}
+	\implies
+	\begin{cases}
+		x_2 & = 0 \\
+		x_2 & = 1 \\
+		x_2 & = 0
+	\end{cases}
+	\implies V_1 = \left\{ \begin{bmatrix} 0 \\ 1 \\0 \end{bmatrix} \right\}
+\]
+
+\[
+	A-\lambda_3 I :=
+	\begin{bmatrix}
+		1 & 0  & 1 \\
+		0 & -1 & 0 \\
+		1 & 0  & 1
+	\end{bmatrix} \implies
+	Nul(A-\lambda_3 I) = \begin{bmatrix}1&0&1\\ 0&1&0\\ 0&0&0\end{bmatrix}
+	\implies \begin{cases}
+		x_3 & = -1 \\
+		x_3 & = 0  \\
+		x_3 & = 1
+	\end{cases}
+	\implies V_3 = \left\{ \begin{bmatrix} -1 \\ 0 \\1 \end{bmatrix} \right\}
+\]
+
+\[
+	A-\lambda_5 I :=
+	\begin{bmatrix}
+		-1 & 0  & 1  \\
+		0  & -3 & 0  \\
+		1  & 0  & -1
+	\end{bmatrix}
+	Nul(A-\lambda_5 I) = \begin{bmatrix}1&0&-1\\ 0&1&0\\ 0&0&0\end{bmatrix}
+	\implies \begin{cases}
+		x_3 & = 1 \\
+		x_3 & = 0 \\
+		x_3 & = 1
+	\end{cases}
+	\implies V_5 = \left\{ \begin{bmatrix} 1 \\ 0 \\1 \end{bmatrix} \right\}
+\]
+
+\[ V_1 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} V_3 = \begin{bmatrix} -1 \\ 0 \\1 \end{bmatrix} V_5 = \begin{bmatrix} 1 \\ 0 \\1 \end{bmatrix} \]
+
+\subsection{Verify that your eigenvectors are mutually orthogonal.}
+\[
+	V_1^TV_3 :=
+	\begin{bmatrix} 0 & 1 & 0 \end{bmatrix}
+	\begin{bmatrix} -1 \\ 0 \\1 \end{bmatrix} = 0
+	\quad \quad
+	V_1^TV_5
+	\begin{bmatrix} 0 & 1 & 0 \end{bmatrix}
+	\begin{bmatrix} 1 \\ 0 \\1 \end{bmatrix} = 0
+	\quad \quad
+	V_3^TV_5
+	\begin{bmatrix} -1 & 0 & 1 \end{bmatrix}
+	\begin{bmatrix} 1 \\ 0 \\1 \end{bmatrix} = 0
+\]
+
+
+\subsection{Normalize your eigenvectors to form an orthogonal matrix $Q$, and write down a diagonal matrix $\Lambda$ such that $A = Q\Lambda Q^T$}
+\[
+	V_1 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \implies q_1 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \quad\quad\quad
+	V_3 = \begin{bmatrix} -1 \\ 0 \\1 \end{bmatrix} \implies q_3 = \begin{bmatrix} -\frac{1}{\sqrt{2}} \\ 0 \\\frac{1}{\sqrt{2}} \end{bmatrix} \quad\quad\quad
+	V_5 = \begin{bmatrix} 1 \\ 0 \\1 \end{bmatrix}  \implies q_5 = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ 0 \\\frac{1}{\sqrt{2}} \end{bmatrix}
+\]
+
+\[
+	A = \begin{bmatrix}
+		4 & 0 & 1 \\
+		0 & 2 & 0 \\
+		1 & 0 & 4
+	\end{bmatrix} \quad\quad
+	Q =
+	\begin{bmatrix}
+		0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+		1 & 0                   & 0                  \\
+		0 & \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{2}}
+	\end{bmatrix} \quad\quad
+	\Lambda = \begin{bmatrix}
+		2 & 0 & 0 \\
+		0 & 3 & 0 \\
+		0 & 0 & 5
+	\end{bmatrix} \quad\quad
+	Q^T =
+	\begin{bmatrix}
+		0                   & 1 & 0                  \\
+		-\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\
+		\frac{1}{\sqrt{2}}  & 0 & \frac{1}{\sqrt{2}}
+	\end{bmatrix}
+\]
+
+Final expression:
+
+\[
+	\begin{bmatrix}
+		4 & 0 & 1 \\
+		0 & 2 & 0 \\
+		1 & 0 & 4
+	\end{bmatrix} =
+	\begin{bmatrix}
+		0 & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+		1 & 0                   & 0                  \\
+		0 & \frac{1}{\sqrt{2}}  & \frac{1}{\sqrt{2}}
+	\end{bmatrix}
+	\begin{bmatrix}
+		2 & 0 & 0 \\
+		0 & 3 & 0 \\
+		0 & 0 & 5
+	\end{bmatrix}
+	\begin{bmatrix}
+		0                   & 1 & 0                  \\
+		-\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\
+		\frac{1}{\sqrt{2}}  & 0 & \frac{1}{\sqrt{2}}
+	\end{bmatrix}
+\]
+
+\section{Question 2}
+Let $A$ be defined as:
+\[
+	A = \begin{bmatrix}
+		1 & 1 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 2
+	\end{bmatrix}
+\]
+\begin{enumerate}
+	\item[(a)] Find all eigenvalues of $A$ and their algebraic multiplicities.
+	\item[(b)] Find the eigenspace corresponding to each eigenvalue.
+	\item[(c)] Find all eigenpairs of $A$.
+	\item[(d)] Decide whether $A$ is diagonalizable. Explain briefly.
+\end{enumerate}
+\[
+	A-\lambda I =
+	\begin{bmatrix}
+		1 & 1 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 2
+	\end{bmatrix}
+\]
+
+\subsection{Find all eigenvalues of $A$ and their algebraic multiplicities.}
+\[
+	A-\lambda I = \begin{bmatrix}
+		1-\lambda & 1         & 0         \\
+		0         & 1-\lambda & 0         \\
+		0         & 0         & 2-\lambda
+	\end{bmatrix}
+\]
+\[
+	\det(A - \lambda I) = \begin{vmatrix}
+		1-\lambda & 1         & 0         \\
+		0         & 1-\lambda & 0         \\
+		0         & 0         & 2-\lambda
+	\end{vmatrix}
+\]
+Determinant:
+\[
+	\begin{aligned}
+		0 = \det(A - \lambda I) & = (1-\lambda) \begin{vmatrix} 1-\lambda & 0 \\ 0 & 2-\lambda \end{vmatrix} - 1 \begin{vmatrix} 0 & 0 \\ 0 & 2-\lambda \end{vmatrix} + 0 \begin{vmatrix} 0 & 1-\lambda \\ 0 & 0 \end{vmatrix} \\
+		0                       & = (1-\lambda)[(1-\lambda)(2-\lambda) - 0] - 0                                                                                                                                                \\
+		0                       & = (1-\lambda)^2(2-\lambda)
+	\end{aligned}
+\]
+Characteristic Equation:
+\[ (1-\lambda)^2 (2-\lambda) = 0 \]
+\[
+	\begin{aligned}
+		\implies \lambda_1 & = 1 \quad \text{(Algebraic Multiplicity = 2)} \\
+		\implies \lambda_2 & = 2 \quad \text{(Algebraic Multiplicity = 1)}
+	\end{aligned}
+\]
+
+\subsection{Find the eigenspace corresponding to each eigenvalue.}
+\[
+	A-\lambda I = \begin{bmatrix}
+		1-\lambda & 1         & 0         \\
+		0         & 1-\lambda & 0         \\
+		0         & 0         & 2-\lambda
+	\end{bmatrix}
+\]
+\[
+	\begin{aligned}
+		\implies \lambda_1 & = 1 \quad \text{(Algebraic Multiplicity = 2)} \\
+		\implies \lambda_2 & = 2 \quad \text{(Algebraic Multiplicity = 1)}
+	\end{aligned}
+\]
+
+\subsection{Find the eigenspace corresponding to each eigenvalue.}
+\begin{center}
+	Let $M_n := A-\lambda_n I ~.~ n \in \{ 2,3,5 \}$ \quad\quad Let $V_n := \mathscr{B}[Nul(M_n)] ~.~ n \in \{ 2,3,5 \}$
+\end{center}
+\[
+	A-\lambda I = \begin{bmatrix}
+		1-\lambda & 1         & 0         \\
+		0         & 1-\lambda & 0         \\
+		0         & 0         & 2-\lambda
+	\end{bmatrix}
+\]
+
+\[
+	A-\lambda_1 I =
+	\begin{bmatrix}
+		0 & 1 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	Nul(A-\lambda_1 I) =
+	\begin{bmatrix}
+		0 & 1 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 1
+	\end{bmatrix} \implies
+	\begin{cases}
+		x_1 = 1 \\
+		x_1 = 0 \\
+		x_1 = 0 \\
+	\end{cases} \implies
+	V_1 = \left\{
+	\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+	\right\}
+\]
+
+\[
+	A-\lambda_2 I =
+	\begin{bmatrix}
+		-1 & 1  & 0 \\
+		0  & -1 & 0 \\
+		0  & 0  & 0
+	\end{bmatrix} \implies Nul(A-\lambda_2 I) =
+	\begin{bmatrix}1&0&0\\ 0&1&0\\ 0&0&0\end{bmatrix} \implies
+	\begin{cases}
+		x_3 = 0 \\
+		x_3 = 0 \\
+		x_3 = 1 \\
+	\end{cases} \implies
+	V_2 = \left\{
+	\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+	\right\}
+\]
+\subsection{Find all eigenpairs of $A$.}
+\[
+	(\lambda_1, V_1) \quad (\lambda_2, V_2)
+\]
+\subsection{Decide whether $A$ is diagonalizable. Explain briefly.}
+\[
+	\text{Geometric Multiplicity} < \text{Algebraic Multiplicity} \implies A \text{ is NOT Diagonalizable}
+\]
+
+\section{Question 3}
+Let $A$ be defined as:
+\[ A =
+	\begin{bmatrix}
+		1 & -2 \\
+		2 & 1
+	\end{bmatrix}
+\]
+\begin{enumerate}
+	\item[(a)] Find the characteristic polynomial of $A$.
+	\item[(b)] Find the eigenvalues of $A$ over $\mathbb{C}$.
+	\item[(c)] For each eigenvalue, find an eigenvector in $\mathbb{C}^2$.
+	\item[(d)] Explain why $A$ has no real eigenvectors.
+\end{enumerate}
+\subsection{Find the characteristic polynomial of $A$.}
+\[ A-\lambda I =
+	\begin{bmatrix}
+		1-\lambda & -2        \\
+		2         & 1-\lambda
+	\end{bmatrix}
+\]
+
+Determinant:
+\[
+	\det(A-\lambda I) =
+	\begin{vmatrix}
+		1-\lambda & -2        \\
+		2         & 1-\lambda
+	\end{vmatrix}
+	= (1-\lambda)(1-\lambda) - (-2)\cdot2 = (1-\lambda)^2 + 4
+\]
+\subsection{Find the eigenvalues of $A$ over $\mathbb{C}$.}
+\[
+	\begin{align}
+		(1-\lambda)^2 + 4            & = 0 \\
+		1 - 2\lambda + \lambda^2 + 4 & = 0 \\
+		5 - 2\lambda + \lambda^2     & = 0 \\
+	\end{align}
+\]
+Therefore there must exists roots $\in \mathbb{C}$. Obtain complex conjugate:
+\[
+	\text{Quadratic Formula:} \quad \lambda & = \frac{2 \pm \sqrt{(-2)^2 - 4 \cdot 1 \cdot 5}}{2 \cdot 1} = 1 \pm 2i \\
+\]
+Thus we obtain the following:
+\[ \lambda_1 = 1+2i \quad \lambda_2 = 1-2i \]
+\subsection{For each eigenvalue, find an eigenvector in $\mathbb{C}^2$.}
+\begin{center}
+	Let $M_n := A-\lambda_n I ~.~ n \in \{ 2,3,5 \}$ \quad\quad Let $V_n := \mathscr{B}[Nul(M_n)] ~.~ n \in \{ 2,3,5 \}$
+\end{center}
+
+For $\lambda_1 = 1+2i$:
+\[
+	M_1 = A-(1+2i)I =
+	\begin{bmatrix}
+		1-(1+2i) & -2       \\
+		2        & 1-(1+2i)
+	\end{bmatrix} =
+	\begin{bmatrix}
+		-2i & -2  \\
+		2   & -2i
+	\end{bmatrix}
+\]
+To find the null space, we solve $M_1 \mathbf{v} = 0$:
+\[
+	-2ix - 2y = 0 \implies 2y = -2ix \implies y = -ix
+\]
+Choosing $x=1$, we get $y=-i$.
+\[
+	V_1 = \left\{ \begin{bmatrix} 1 \\ -i \end{bmatrix} \right\}
+\]
+
+For $\lambda_2 = 1-2i$:
+\[
+	M_2 = A-(1-2i)I =
+	\begin{bmatrix}
+		1-(1-2i) & -2       \\
+		2        & 1-(1-2i)
+	\end{bmatrix} =
+	\begin{bmatrix}
+		2i & -2 \\
+		2  & 2i
+	\end{bmatrix}
+\]
+To find the null space, we solve $M_2 \mathbf{v} = 0$:
+\[
+	2ix - 2y = 0 \implies 2y = 2ix \implies y = ix
+\]
+Choosing $x=1$, we get $y=i$.
+\[
+	V_2 = \left\{ \begin{bmatrix} 1 \\ i \end{bmatrix} \right\}
+\]
+
+\subsection{Explain why $A$ has no real eigenvectors.}
+A matrix $A$ has a real eigenvector $\mathbf{v} \in \mathbb{R}^2$ if and only if there exists a real eigenvalue $\lambda \in \mathbb{R}$ such that $A\mathbf{v} = \lambda\mathbf{v}$.
+
+If we assume $\mathbf{v}$ is a real, non-zero vector, then the product $A\mathbf{v}$ must result in another real vector. For the equation $A\mathbf{v} = \lambda\mathbf{v}$ to hold, $\lambda$ would necessarily have to be a real number. Because the eigenvalues of this matrix are strictly complex ($\lambda = 1 \pm 2i$), there is no real scalar $\lambda$ that can satisfy the eigenvalue equation for any non-zero real vector $\mathbf{v}$.
+
+Therefore, any eigenvector of $A$ must necessarily have complex components, placing it in $\mathbb{C}^2 \setminus \mathbb{R}^2$.
+
+\section{Question 4}
+Find one singular value decomposition of the $3 \times 2$ matrix. Let $A$ be defined as:
+\[ A = \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 0 & 0 \end{bmatrix}. \]
+More precisely:
+\begin{enumerate}
+	\item[(a)] Compute $A^T A$ and find its eigenvalues.
+	\item[(b)] Find the singular values of $A$.
+	\item[(c)] Find an orthogonal matrix $V$ whose columns are right singular vectors.
+	\item[(d)] Find an orthogonal matrix $U$ and a $3 \times 2$ diagonal matrix $\Sigma$ such that \[ A = U\Sigma V^T. \]
+\end{enumerate}
+\subsection{Compute $A^T A$ and find its eigenvalues.}
+First, we find the transpose of $A$:
+\[
+	A^T = \begin{bmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \end{bmatrix}
+\]
+
+Now, compute the product $A^T A$:
+\[
+	A^T A = \begin{bmatrix} 1 & 1 & 0 \\ 1 & 1 & 0 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} (1)(1)+(1)(1)+(0)(0) & (1)(1)+(1)(1)+(0)(0) \\ (1)(1)+(1)(1)+(0)(0) & (1)(1)+(1)(1)+(0)(0) \end{bmatrix} = \begin{bmatrix} 2 & 2 \\ 2 & 2 \end{bmatrix}
+\]
+
+To find the eigenvalues, we solve the characteristic equation $\det(A^T A - \lambda I) = 0$:
+\[
+	\det \begin{bmatrix} 2-\lambda & 2 \\ 2 & 2-\lambda \end{bmatrix} = (2-\lambda)^2 - 4 = 0
+\]
+\[
+	4 - 4\lambda + \lambda^2 - 4 = 0
+\]
+\[
+	\lambda^2 - 4\lambda = 0
+\]
+\[
+	\lambda(\lambda - 4) = 0
+\]
+
+Therefore, the eigenvalues, ordered from largest to smallest, are:
+\[
+	\lambda_1 = 4, \quad \lambda_2 = 0
+\]
+
+\subsection{Find the singular values of $A$.}
+The singular values $\sigma_i$ are the square roots of the eigenvalues of $A^T A$.
+\[
+	\sigma_1 = \sqrt{\lambda_1} = \sqrt{4} = 2
+\]
+\[
+	\sigma_2 = \sqrt{\lambda_2} = \sqrt{0} = 0
+\]
+
+\subsection{Find an orthogonal matrix $V$ whose columns are right singular vectors.}
+We need to find the orthonormal eigenvectors for $A^T A$, which will form the columns of $V = [\mathbf{v}_1, \mathbf{v}_2]$.
+
+\textbf{For $\lambda_1 = 4$:}
+\[
+	(A^T A - 4I)\mathbf{v}_1 = \begin{bmatrix} -2 & 2 \\ 2 & -2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+This gives $-2x + 2y = 0 \implies x = y$.
+A corresponding unit vector is:
+\[
+	\mathbf{v}_1 = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}
+\]
+
+\textbf{For $\lambda_2 = 0$:}
+\[
+	(A^T A - 0I)\mathbf{v}_2 = \begin{bmatrix} 2 & 2 \\ 2 & 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+This gives $2x + 2y = 0 \implies x = -y$.
+A corresponding unit vector is:
+\[
+	\mathbf{v}_2 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix}
+\]
+
+Placing these as columns, our matrix $V$ is:
+\[
+	V = \begin{bmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{bmatrix}
+\]
+
+\subsection{Find an orthogonal matrix $U$ and a $3 \times 2$ diagonal matrix $\Sigma$ such that $A = U\Sigma V^T$}
+
+\textbf{Find $\Sigma$:}
+Since $A$ is a $3 \times 2$ matrix, $\Sigma$ must also be a $3 \times 2$ matrix. We place the singular values on the main diagonal and pad with zeros:
+\[
+	\Sigma = \begin{bmatrix} \sigma_1 & 0 \\ 0 & \sigma_2 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 2 & 0 \\ 0 & 0 \\ 0 & 0 \end{bmatrix}
+\]
+
+\textbf{Find $U$:}
+The columns of $U = [\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3]$ are the left singular vectors. For non-zero singular values, we can find $\mathbf{u}_i$ using the formula $\mathbf{u}_i = \frac{1}{\sigma_i} A \mathbf{v}_i$.
+
+\textbf{For $\sigma_1 = 2$:}
+\[
+	\mathbf{u}_1 = \frac{1}{2} \begin{bmatrix} 1 & 1 \\ 1 & 1 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 2/\sqrt{2} \\ 2/\sqrt{2} \\ 0 \end{bmatrix} = \begin{bmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \\ 0 \end{bmatrix}
+\]
+
+Because $\sigma_2 = 0$, we cannot use the formula to find $\mathbf{u}_2$. Instead, we must find vectors $\mathbf{u}_2$ and $\mathbf{u}_3$ such that $\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3$ form an orthonormal basis for $\mathbb{R}^3$ (meaning they are unit vectors mutually orthogonal to each other).
+
+To find $\mathbf{u}_2$ orthogonal to $\mathbf{u}_1$, we need a vector $\begin{bmatrix} x \\ y \\ z \end{bmatrix}$ such that $\frac{1}{\sqrt{2}}x + \frac{1}{\sqrt{2}}y + 0z = 0$, which means $x = -y$. Let's pick a normalized vector satisfying this:
+\[
+	\mathbf{u}_2 = \begin{bmatrix} -1/\sqrt{2} \\ 1/\sqrt{2} \\ 0 \end{bmatrix}
+\]
+
+To find $\mathbf{u}_3$ orthogonal to both $\mathbf{u}_1$ and $\mathbf{u}_2$, we can take their cross product, or simply observe that the z-axis unit vector is orthogonal to the xy-plane vectors we just found:
+\[
+	\mathbf{u}_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+Putting it all together, our orthogonal matrix $U$ is:
+\[
+	U = \begin{bmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} & 0 \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0 \\ 0 & 0 & 1 \end{bmatrix}
+\]
+
+This yields the complete decomposition $A = U\Sigma V^T$.
+
+\end{document}
