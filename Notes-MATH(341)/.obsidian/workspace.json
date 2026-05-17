@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lec/L17.md",
-                "mode": "preview",
+                "file": "Lec/L15.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "L17"
+              "title": "L15"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "schor",
+                "query": "diagon",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,12 +74,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "92690b3d463b7925",
@@ -192,25 +192,41 @@
   },
   "active": "c0d5e0e300e85ef4",
   "lastOpenFiles": [
-    "Lec/L17.md~",
-    "Lec/L18.md",
-    "Lec/L18.md~",
-    "LecFormated/L07.md",
-    "LecFormated/L17.md",
-    "LecFormated/L17.md~",
+    "LecFormated/L16.md",
     "Lec/L16.md",
     "Lec/L17.md",
-    "Lec/L16.md~",
+    "L03.md",
+    "Atomized/Defs/Defs.md",
+    "Lec/L21.md~",
+    "Lec/L20.md~",
+    "L07.md",
     "Lec/L15.md",
-    "Lec/L04.md",
-    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec/L04.md",
-    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)/Lec",
-    "home/sybil/Documents/School/2026-Spring/MATH-341/Notes-MATH(341)",
-    "home/sybil/Documents/School/2026-Spring/MATH-341",
-    "home/sybil/Documents/School/2026-Spring",
-    "home/sybil/Documents/School",
-    "home/sybil/Documents",
-    "Notes-MATH(341)/Lec/L16.md",
-    "Lec/L05.md"
+    "LecFormated/L13.md",
+    "LecFormated/L13.md~",
+    "LecFormated/L17.md",
+    "LecFormated/indent.log",
+    "LecFormated/L12.md",
+    "LecFormated/L19u.md",
+    "LecFormated/L19u.md~",
+    "LecFormated/L18.md",
+    "LecFormated/L16.md~",
+    "LecFormated/L15.md",
+    "LecFormated/L14.md",
+    "Lec/L19u.md",
+    "LecFormated/L14.md~",
+    "template.txt",
+    "LecFormated/L07.md",
+    "LecFormated",
+    "Lec/LecFormated/L07.md",
+    "Lec/LecFormated",
+    "L09.md",
+    "L05.md",
+    "L01.md",
+    "L02.md",
+    "L04.md",
+    "L06.md",
+    "L08.md",
+    "L10.md",
+    "L11.md"
   ]
 }

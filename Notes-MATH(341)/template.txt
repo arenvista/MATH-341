@@ -1,9 +1,7 @@
----
-id: template
-aliases: []
-tags: []
----
-Read the provided contents and run: clean, split into sections by header, title unnamed theorems, sections etc. 
+Directives:
+1. Organize notes
+2. Create/Ammend Headers for clarity
+3. Fill in any missing gaps in logic
 
 Formatting Rules:
 - Use $$ $$ for display math.
@@ -33,5 +31,3 @@ The environment supports the following callout types:
 .callout[data-callout="imp"]
 
 Output ONLY the formatted markdown text. Do not include introductory conversational filler.
-Create Obsidian Wiki Style Links bridging topics when appropriate
-
