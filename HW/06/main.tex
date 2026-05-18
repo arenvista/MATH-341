@@ -1,0 +1,356 @@
+\input{template.tex}
+\setupHW{MATH 341: Howework 5}
+\begin{document}
+\maketitle
+\section*{Exercise 1 (Nonlinear least squares)}
+Consider the data and the power-law model
+\[
+	t = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{bmatrix}, \quad
+	y = \begin{bmatrix} 1.2 \\ 2.8 \\ 5.1 \\ 8.0 \\ 14.7 \end{bmatrix},
+\]
+\[ f(t; c) = c_1 t^{c_2}, \quad c = \begin{bmatrix} c_1 \\ c_2 \end{bmatrix}. \]
+
+\subsection*{Part (a)}
+Define the nonlinear least-squares problem for fitting the model to the data. In particular, write down the residuals and the residual vector $r(c)$.
+\[ r_i(c) = c_1 t_i^{c_2} - y_i, \quad i = 1, \dots, 5 \]
+
+\[
+	\begin{gathered}
+		\text{Consider the form below: } \\
+		\begin{bmatrix}
+			t_1    & \cdots & \cdots & 0      \\
+			0      & t_2    &        & \vdots \\
+			\vdots &        & \ddots & 0      \\
+			0      & \cdots & \cdots & t_5    \\
+		\end{bmatrix}^{c_2}
+		\begin{bmatrix}
+			c_1    \\
+			c_1    \\
+			\vdots \\
+			c_1    \\
+		\end{bmatrix} =
+		\begin{bmatrix}
+			\hat{y}_1 \\
+			\hat{y}_2 \\
+			\vdots    \\
+			\hat{y}_N \\
+		\end{bmatrix}
+	\end{gathered}
+\]
+
+\[
+	\implies \vec{r} = \vec{\hat{y}}-\vec{y}
+\]
+
+
+\subsection*{Part (b)}
+Define: $E(c) = \frac{1}{2} \|r(c)\|_2^2.$
+Set $F(c) = \nabla E(c)$, where $\nabla E(c)$ is regarded as a row vector. Reformulate the stationarity condition as where $F(c)^T$ is a column vector.
+\[ F(c)^T = 0, \]
+Show that where $J(c) = D r(c)$, and compute the Jacobian matrix $J(c)$ explicitly.
+\[ F(c)^T = J(c)^T r(c), \]
+
+% Your solution here
+\[
+	E(c) = \frac{1}{2} \|r(c)\|_2^2 ~\equiv~ \frac{1}{2} \vec{r}^{\,T} \vec{r} \implies \nabla E :=
+	\left(\frac{\partial \vec{r}}{\partial c}\right)^{T} \vec{r} = J(c)^{T} \vec{r} = F^T(c)
+\]
+
+\[
+	\therefore ~F(c)^T = 0 \iff J(c)r(c)=0
+\]
+
+\[
+	\begin{gathered}
+		c_1t_i^{c_2} \frac{\partial r_i}{\partial c_1} = t_i^{c_2} \quad
+		c_1t_i^{c_2} \frac{\partial r_i}{\partial c_2} = c_1t_i^{c_2}log(t_i)
+	\end{gathered}
+	\implies
+	J :=
+	\begin{bmatrix}
+		t_1^{c_2} & c_1t_1^{c_2}log(t_1) \\
+		\vdots    & \vdots               \\
+		t_5^{c_2} & c_1t_5^{c_2}log(t_5) \\
+	\end{bmatrix}
+\]
+
+\subsection*{Part (c/d)}
+Formulate the Gauss-Newton algorithm for this problem, starting from the initial guess
+\[ c^{(0)} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}. \]
+As a hint, if $A = J(c^{(k)})$, then the Gauss-Newton step $\delta c$ is defined by
+\[ A^T A \delta c = -A^T r(c^{(k)}) \]
+\[ c^{(k+1)} = c^{(k)} + \delta c. \]
+
+If possible, implement the algorithm in your favorite language (MATLAB, Python, Julia, C/C++, \dots). Report the approximate fitted parameters and, if you wish, include a plot of the data together with the fitted curve.
+
+\begin{cbox}{catred}{Code/Algorithim}
+	cbox\inputminted[linenos, breaklines, frame=lines, framesep=2mm, numbersep=8pt, tabsize=4]{python}{/home/sybil/Documents/School/2026-Spring-bk/MATH-341/HW/06/code/main.py}
+\end{cbox}
+
+\includegraphics[width=\textwidth]{/home/sybil/Documents/School/2026-Spring-bk/MATH-341/HW/06/code/gauss_newton_exponential_fit.png}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l}
+		\hline
+		Parameter set            & Values                     \\
+		\hline
+		Initial guess $c^{(0)}$  & $[1.0,\ 1.0]$              \\
+		Optimized parameters $c$ & $[0.96590464,\ 0.5465158]$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section*{Exercise 2 (Linearization by taking logarithms)}
+
+Use the same data and model as in Problem 1, but now fit the model through logarithmic linearization.
+
+\subsection*{Part (a)}
+Starting from
+\[ y_i = c_1 t_i^{c_2}, \qquad i=1,\dots,N, \]
+and using the assumptions $y_i > 0$ and $t_i > 0$, take logarithms of both sides:
+\[ \log y_i = \log c_1 + c_2 \log t_i. \]
+With the substitutions
+\[ z_i = \log t_i, \qquad w_i = \log y_i, \qquad \alpha = \log c_1, \qquad \beta = c_2, \]
+the model becomes
+\[ w_i = \alpha + \beta z_i, \qquad i=1,\dots,N. \]
+Therefore, the fitting problem is to find $\alpha$ and $\beta$ that minimize
+\[ \sum_{i=1}^N \bigl(w_i - (\alpha + \beta z_i)\bigr)^2. \]
+This is a linear least-squares problem in the unknown vector
+\[ u = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}. \]
+In matrix form,
+\[ Xu \approx w, \]
+where
+\[
+	X =
+	\begin{bmatrix}
+		1      & z_1    \\
+		1      & z_2    \\
+		\vdots & \vdots \\
+		1      & z_N
+	\end{bmatrix},
+	\qquad
+	u =
+	\begin{bmatrix}
+		\alpha \\
+		\beta
+	\end{bmatrix},
+	\qquad
+	w =
+	\begin{bmatrix}
+		w_1    \\
+		w_2    \\
+		\vdots \\
+		w_N
+	\end{bmatrix}.
+\]
+Thus, the linear least-squares problem is
+\[
+	\min_{u \in \mathbb{R}^2} \|Xu - w\|_2^2.
+\]
+Comparing with the generic form, we have
+\[
+	x_{i,1} = 1, \qquad x_{i,2} = z_i, \qquad \theta_1 = \alpha, \qquad \theta_2 = \beta, \qquad \hat{y}_i = w_i.
+\]
+After solving for $u$, recover the original parameters by
+\[
+	c_1 = e^{\alpha}, \qquad c_2 = \beta.
+\]
+
+
+\subsection*{Part (b)}
+Define
+\[
+	E_{\log}(u)=\frac{1}{2}\|Xu-w\|_2^2=\frac{1}{2}(Xu-w)^T(Xu-w).
+\]
+Then
+\[
+	F_{\log}(u)=\nabla E_{\log}(u)=X^T(Xu-w)=X^TXu-X^Tw.
+\]
+Hence the stationarity condition is
+\[
+	F_{\log}(u)^T=0
+	\iff F_{\log}(u)=0
+	\iff X^T(Xu-w)=0
+	\iff X^TXu=X^Tw.
+\]
+
+Assuming the observations are independent, the likelihood is
+\[
+	J(\theta)=\prod_{i=1}^{N}\big[\alpha(\theta^Tx_i)\big]^{y_i}\big[1-\alpha(\theta^Tx_i)\big]^{1-y_i}.
+\]
+Taking logs gives the log-likelihood
+\[
+	\ell(\theta)=\log J(\theta)=\sum_{i=1}^{N}\Big[y_i\log\alpha(\theta^Tx_i)+(1-y_i)\log\big(1-\alpha(\theta^Tx_i)\big)\Big].
+\]
+
+For a single sample $(x_i,y_i)$, let
+\[
+	\ell^{(i)}(\theta)=y_i\log\hat{y}_i+(1-y_i)\log(1-\hat{y}_i),
+	\qquad
+	\hat{y}_i=\alpha(\theta^Tx_i).
+\]
+Using the chain rule,
+\[
+	\frac{\partial \ell^{(i)}(\theta)}{\partial\theta_j}
+	=
+	\frac{\partial \ell^{(i)}}{\partial \hat{y}_i}
+	\cdot
+	\frac{\partial \hat{y}_i}{\partial (\theta^Tx_i)}
+	\cdot
+	\frac{\partial (\theta^Tx_i)}{\partial \theta_j}.
+\]
+Now,
+\[
+	\frac{\partial \ell^{(i)}}{\partial \hat{y}_i}
+	=
+	\frac{y_i}{\hat{y}_i}-\frac{1-y_i}{1-\hat{y}_i},
+	\qquad
+	\frac{\partial \hat{y}_i}{\partial (\theta^Tx_i)}=\hat{y}_i(1-\hat{y}_i),
+	\qquad
+	\frac{\partial (\theta^Tx_i)}{\partial \theta_j}=x_{ij}.
+\]
+Therefore,
+\[
+	\frac{\partial \ell^{(i)}(\theta)}{\partial\theta_j}
+	=
+	\left(\frac{y_i}{\hat{y}_i}-\frac{1-y_i}{1-\hat{y}_i}\right)\hat{y}_i(1-\hat{y}_i)x_{ij}
+	=
+	(y_i-\hat{y}_i)x_{ij}.
+\]
+Equivalently, in vector form,
+\[
+	\nabla \ell^{(i)}(\theta)=(y_i-\hat{y}_i)x_i.
+\]
+
+If instead $J^{(i)}(\theta)$ denotes the \emph{negative} log-likelihood (the cost minimized in logistic regression), then
+\[
+	\frac{\partial J^{(i)}(\theta)}{\partial\theta_j}=(\hat{y}_i-y_i)x_{ij},
+	\qquad
+	\nabla J^{(i)}(\theta)=(\hat{y}_i-y_i)x_i.
+\]
+
+% Your original final line had the right idea, but the sign depends on whether you use
+% log-likelihood or negative log-likelihood, and the correct vector form is
+% (\hat{y}_i-y_i)x_i or (y_i-\hat{y}_i)x_i.
+
+
+\subsection*{Part (c)}
+Recover the original parameters from
+\[ c_1 = e^\alpha, \quad c_2 = \beta. \]
+If possible, compare the fitted parameters from Problems 1 and 2 and explain briefly why the two answers need not agree.
+
+% Your solution here
+
+\subsection*{Part (d)}
+If possible, implement the log-linearized approach in your favorite language and compare the resulting fit with the Gauss-Newton fit from Problem 1.
+
+% Your solution here
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+\section*{Exercise 3 (Rank-one and low-rank inverse updates)}
+
+\subsection*{Part (a)}
+Let $c, d \in \mathbb{R}^n$ and assume that
+\[ 1 + d^T c \neq 0. \]
+Verify directly that
+\[ (I + c d^T)^{-1} = I - \frac{c d^T}{1 + d^T c}. \]
+That is, multiply $(I + c d^T)$ by the proposed inverse and simplify.
+
+\[
+\begin{aligned}
+	(I + c d^T)\left( I - \frac{c d^T}{1 + d^T c} \right)
+	&= I + c d^T - \frac{c d^T}{1 + d^T c} - \frac{c d^T c d^T}{1 + d^T c} \\
+	&= I + c d^T - \frac{c d^T}{1 + d^T c} - \frac{(d^T c)c d^T}{1 + d^T c} \\
+	&= I + c d^T - \frac{(1 + d^T c)c d^T}{1 + d^T c} \\
+	&= I
+\end{aligned}
+\]
+
+\subsection*{Part (b)}
+Let $A \in \mathbb{R}^{n \times n}$ be nonsingular, and let $C, D \in \mathbb{R}^{n \times k}$. Assume that
+\[ I + D^T A^{-1} C \]
+is nonsingular. Verify the Sherman-Morrison-Woodbury formula
+\[ (A + C D^T)^{-1} = A^{-1} - A^{-1} C (I + D^T A^{-1} C)^{-1} D^T A^{-1}. \]
+Again, verify this by multiplying $(A + C D^T)$ by the inverse and simplifying.
+
+\[
+\begin{aligned}
+\text{Let } M &= I + D^T A^{-1} C. \\
+(A + C D^T)\left(A^{-1} - A^{-1} C M^{-1} D^T A^{-1}\right)
+&= A A^{-1} - A A^{-1} C M^{-1} D^T A^{-1} + C D^T A^{-1} - C D^T A^{-1} C M^{-1} D^T A^{-1} \\
+&= I - C M^{-1} D^T A^{-1} + C D^T A^{-1} - C D^T A^{-1} C M^{-1} D^T A^{-1} \\
+&= I + C D^T A^{-1} - C\left(M^{-1} + D^T A^{-1} C M^{-1}\right)D^T A^{-1} \\
+&= I + C D^T A^{-1} - C\left(I + D^T A^{-1} C\right)M^{-1} D^T A^{-1} \\
+&= I + C D^T A^{-1} - C D^T A^{-1} \\
+&= I.
+\end{aligned}
+\]
+
+Hence
+\[
+(A + C D^T)^{-1} = A^{-1} - A^{-1} C (I + D^T A^{-1} C)^{-1} D^T A^{-1}.
+\]
+
+\subsection*{Part (c)}
+Explain briefly why part (a) is a special case of part (b).
+
+\[
+\text{Let: } A = I, \quad C = c, \quad D = d, \quad k = 1 \quad ~st~ \quad CD^T = cd^T, \quad I + D^T A^{-1}C = 1 + d^T c,
+\]
+\[
+\implies (I + cd^T)^{-1} = I - \frac{cd^T}{1 + d^T c}.
+\]
+
+\section*{Exercise 4}
+
+Let $A \in \mathbb{R}^{n \times n}$ be a symmetric positive definite matrix and $b \in \mathbb{R}^n$. Consider the quadratic functional
+\[ J(x) = \frac{1}{2} x^T A x - x^T b, \quad x \in \mathbb{R}^n. \]
+It is known that minimizing $J$ is equivalent to solving the linear system
+\[ A x = b. \]
+Verify this by computing the partial derivative of $J$ with respect to $x_k$, and showing that
+\[ \frac{\partial J}{\partial x_k}(x) = 0 \]
+is exactly the $k$-th equation of the system $A x = b$, for each $k = 1, \dots, n$.
+\[ J(x) = \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j - \sum_{i=1}^n b_i x_i, \]
+and use that $A$ is symmetric.
+
+% Solution
+\[
+\begin{aligned}
+\frac{\partial J}{\partial x_k}(x)
+&= \frac{\partial}{\partial x_k}\left(\frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j - \sum_{i=1}^n b_i x_i\right) \\
+&= \frac{1}{2} \sum_{j=1}^n a_{kj} x_j + \frac{1}{2} \sum_{i=1}^n a_{ik} x_i - b_k.
+\end{aligned}
+\]
+Since $A$ is symmetric, $a_{ik} = a_{ki}$. Therefore,
+\[
+\frac{1}{2} \sum_{i=1}^n a_{ik} x_i = \frac{1}{2} \sum_{i=1}^n a_{ki} x_i.
+\]
+Relabeling the index $i$ as $j$, we obtain
+\[
+\frac{\partial J}{\partial x_k}(x)
+= \frac{1}{2} \sum_{j=1}^n a_{kj} x_j + \frac{1}{2} \sum_{j=1}^n a_{kj} x_j - b_k
+= \sum_{j=1}^n a_{kj} x_j - b_k.
+\]
+But
+\[
+\sum_{j=1}^n a_{kj} x_j = (Ax)_k,
+\]
+so
+\[
+\frac{\partial J}{\partial x_k}(x) = (Ax)_k - b_k.
+\]
+Hence,
+\[
+\frac{\partial J}{\partial x_k}(x) = 0
+\quad \Longleftrightarrow \quad
+(Ax)_k = b_k
+\quad \Longleftrightarrow \quad
+\sum_{j=1}^n a_{kj} x_j = b_k,
+\]
+which is exactly the $k$-th equation of the linear system $Ax=b$. Since this holds for every $k=1,\dots,n$, minimizing $J$ is equivalent to solving $Ax=b$.
+
+\end{document}

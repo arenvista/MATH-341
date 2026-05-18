@@ -1,0 +1,116 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{numpy}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{np}
+
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{matplotlib.pyplot}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n+nn}{plt}
+
+
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{gauss\PYGZus{}newton}\PYG{p}{(}\PYG{n}{residual\PYGZus{}func}\PYG{p}{,} \PYG{n}{jacobian\PYGZus{}func}\PYG{p}{,} \PYG{n}{c0}\PYG{p}{,} \PYG{n}{tol}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{,} \PYG{n}{max\PYGZus{}iterations}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    @Implements the Gauss\PYGZhy{}Newton method for non\PYGZhy{}linear least squares.}
+\PYG{l+s+sd}{    @Parameters:}
+\PYG{l+s+sd}{        residual\PYGZus{}func (callable): Function that returns the residual vector r(c).}
+\PYG{l+s+sd}{        jacobian\PYGZus{}func (callable): Function that returns the Jacobian matrix J(c).}
+\PYG{l+s+sd}{        c0 (array\PYGZhy{}like): Initial guess for the parameters c.}
+\PYG{l+s+sd}{        tol (float): Tolerance for the stopping criterion.}
+\PYG{l+s+sd}{        max\PYGZus{}iterations (int): Maximum number of iterations to perform.}
+\PYG{l+s+sd}{        }
+\PYG{l+s+sd}{    @Returns: np.ndarray: The optimized parameters c.}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{c+c1}{\PYGZsh{} Initialize starting point as a float array}
+    \PYG{n}{c} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{c0}\PYG{p}{,} \PYG{n}{dtype}\PYG{o}{=}\PYG{n+nb}{float}\PYG{p}{)}
+    
+    \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{max\PYGZus{}iterations}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} Compute the residual vector}
+        \PYG{n}{r} \PYG{o}{=} \PYG{n}{residual\PYGZus{}func}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}
+        
+        \PYG{c+c1}{\PYGZsh{} Compute the Jacobian}
+        \PYG{n}{A} \PYG{o}{=} \PYG{n}{jacobian\PYGZus{}func}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}
+        
+        \PYG{c+c1}{\PYGZsh{} Solve the normal equations for the Gauss\PYGZhy{}Newton step delta\PYGZus{}c:}
+        \PYG{c+c1}{\PYGZsh{} A\PYGZca{}T A \PYGZbs{}delta c = \PYGZhy{}A\PYGZca{}T r}
+        \PYG{n}{A\PYGZus{}T} \PYG{o}{=} \PYG{n}{A}\PYG{o}{.}\PYG{n}{T}
+        \PYG{n}{normal\PYGZus{}matrix} \PYG{o}{=} \PYG{n}{A\PYGZus{}T} \PYG{o}{@} \PYG{n}{A}
+        \PYG{n}{normal\PYGZus{}vector} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{A\PYGZus{}T} \PYG{o}{@} \PYG{n}{r}
+        
+        \PYG{n}{delta\PYGZus{}c} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{solve}\PYG{p}{(}\PYG{n}{normal\PYGZus{}matrix}\PYG{p}{,} \PYG{n}{normal\PYGZus{}vector}\PYG{p}{)}
+        
+        \PYG{c+c1}{\PYGZsh{} Update}
+        \PYG{n}{c} \PYG{o}{=} \PYG{n}{c} \PYG{o}{+} \PYG{n}{delta\PYGZus{}c}
+        
+        \PYG{c+c1}{\PYGZsh{} Stop when ||\PYGZbs{}delta c|| is sufficiently small}
+        \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{delta\PYGZus{}c}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{tol}\PYG{p}{:}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Converged in }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{k}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ iterations.\PYGZdq{}}\PYG{p}{)}
+            \PYG{k}{break}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Warning: Reached maximum iterations without converging.\PYGZdq{}}\PYG{p}{)}
+        
+    \PYG{k}{return} \PYG{n}{c}
+
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Fit the model: f(t, c) = c0 * exp(c1 * t)}
+    \PYG{c+c1}{\PYGZsh{} Sample data}
+    \PYG{n}{t\PYGZus{}data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{])}
+    \PYG{n}{y\PYGZus{}data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{l+m+mf}{1.2}\PYG{p}{,} \PYG{l+m+mf}{2.8}\PYG{p}{,} \PYG{l+m+mf}{5.1}\PYG{p}{,} \PYG{l+m+mf}{8.9}\PYG{p}{,} \PYG{l+m+mf}{14.7}\PYG{p}{])}
+    
+    \PYG{c+c1}{\PYGZsh{} Define the residual function: r(c) = Model(c) \PYGZhy{} Data}
+    \PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{calculate\PYGZus{}residual}\PYG{p}{(}\PYG{n}{c}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{*} \PYG{n}{t\PYGZus{}data}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}data}
+
+    \PYG{c+c1}{\PYGZsh{} Define the Jacobian matrix function}
+    \PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{calculate\PYGZus{}jacobian}\PYG{p}{(}\PYG{n}{c}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} The Jacobian has dimensions (number\PYGZus{}of\PYGZus{}data\PYGZus{}points) x (number\PYGZus{}of\PYGZus{}parameters)}
+        \PYG{n}{J} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{empty}\PYG{p}{((}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{t\PYGZus{}data}\PYG{p}{),} \PYG{l+m+mi}{2}\PYG{p}{))}
+        \PYG{c+c1}{\PYGZsh{} Partial derivative wrt c0: exp(c1 * t)}
+        \PYG{n}{J}\PYG{p}{[:,} \PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{*} \PYG{n}{t\PYGZus{}data}\PYG{p}{)}
+        \PYG{c+c1}{\PYGZsh{} Partial derivative wrt c1: c0 * t * exp(c1 * t)}
+        \PYG{n}{J}\PYG{p}{[:,} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{t\PYGZus{}data} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{*} \PYG{n}{t\PYGZus{}data}\PYG{p}{)}
+        
+        \PYG{k}{return} \PYG{n}{J}
+
+    \PYG{n}{c\PYGZus{}initial} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mf}{1.0}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{]}
+
+    \PYG{n}{c\PYGZus{}optimized} \PYG{o}{=} \PYG{n}{gauss\PYGZus{}newton}\PYG{p}{(}\PYG{n}{calculate\PYGZus{}residual}\PYG{p}{,} \PYG{n}{calculate\PYGZus{}jacobian}\PYG{p}{,} \PYG{n}{c\PYGZus{}initial}\PYG{p}{)}
+    
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Initial guess c(0):\PYGZdq{}}\PYG{p}{,} \PYG{n}{c\PYGZus{}initial}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Optimized parameters c:\PYGZdq{}}\PYG{p}{,} \PYG{n}{c\PYGZus{}optimized}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Plot the data points and fitted curve}
+    \PYG{n}{t\PYGZus{}fit} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{t\PYGZus{}data}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(),} \PYG{n}{t\PYGZus{}data}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(),} \PYG{l+m+mi}{300}\PYG{p}{)}
+    \PYG{n}{y\PYGZus{}fit} \PYG{o}{=} \PYG{n}{c\PYGZus{}optimized}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{n}{c\PYGZus{}optimized}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{*} \PYG{n}{t\PYGZus{}fit}\PYG{p}{)}
+
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{style}\PYG{o}{.}\PYG{n}{use}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}seaborn\PYGZhy{}v0\PYGZus{}8\PYGZhy{}whitegrid\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{),} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{120}\PYG{p}{)}
+
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{scatter}\PYG{p}{(}
+        \PYG{n}{t\PYGZus{}data}\PYG{p}{,}
+        \PYG{n}{y\PYGZus{}data}\PYG{p}{,}
+        \PYG{n}{s}\PYG{o}{=}\PYG{l+m+mi}{60}\PYG{p}{,}
+        \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZsh{}27d643\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{edgecolor}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}white\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.8}\PYG{p}{,}
+        \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.9}\PYG{p}{,}
+        \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Data points\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{zorder}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{,}
+    \PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}
+        \PYG{n}{t\PYGZus{}fit}\PYG{p}{,}
+        \PYG{n}{y\PYGZus{}fit}\PYG{p}{,}
+        \PYG{n}{color}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZsh{}1f77b4\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{2.5}\PYG{p}{,}
+        \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}Fitted curve\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{zorder}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,}
+    \PYG{p}{)}
+
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}t\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gauss\PYGZhy{}Newton Exponential Fit\PYGZdq{}}\PYG{p}{,} \PYG{n}{fontsize}\PYG{o}{=}\PYG{l+m+mi}{15}\PYG{p}{,} \PYG{n}{weight}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}bold\PYGZdq{}}\PYG{p}{,} \PYG{n}{pad}\PYG{o}{=}\PYG{l+m+mi}{12}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{n}{frameon}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{fancybox}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{framealpha}\PYG{o}{=}\PYG{l+m+mf}{0.95}\PYG{p}{,} \PYG{n}{shadow}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{,} \PYG{n}{linestyle}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZhy{}\PYGZdq{}}\PYG{p}{,} \PYG{n}{linewidth}\PYG{o}{=}\PYG{l+m+mf}{0.6}\PYG{p}{,} \PYG{n}{alpha}\PYG{o}{=}\PYG{l+m+mf}{0.7}\PYG{p}{)}
+
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{spines}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}top\PYGZdq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}visible}\PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+    \PYG{n}{ax}\PYG{o}{.}\PYG{n}{spines}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}right\PYGZdq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}visible}\PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+
+    \PYG{n}{fig}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{()}
+    \PYG{n}{fig}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}gauss\PYGZus{}newton\PYGZus{}exponential\PYGZus{}fit.png\PYGZdq{}}\PYG{p}{,} \PYG{n}{dpi}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{,} \PYG{n}{bbox\PYGZus{}inches}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}tight\PYGZdq{}}\PYG{p}{)}
+\end{MintedVerbatim}
